@@ -1,16 +1,15 @@
+## Myself Neovim Config
 ## Required
-
 - Nerd Fonts.
 - Neovim v0.8.x.
 - Node.js v16+.
+- Git command
+## Config Step
 
-## Install
+### 1. install packer
+``` 
+cd ~/AppData/Local
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ./nvim-data/site/pack/packer/start/packer.nvim
+```
 
-`npx zx http://www.nshen.net/learn-neovim-lua/install.mjs`
-
-## todo
-
-- packer init first
-- nvim-treesitter ensure_installed 
-- mason_config ensure_installed 
-
+### 2. 
