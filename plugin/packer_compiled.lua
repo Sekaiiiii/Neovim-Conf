@@ -89,15 +89,35 @@ _G.packer_plugins = {
     path = "C:\\Users\\73835\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mason-lspconfig"] = {
+    loaded = true,
+    path = "C:\\Users\\73835\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason-lspconfig",
+    url = "https://github.com/williamboman/mason-lspconfig"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\73835\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["melange-nvim"] = {
     loaded = true,
     path = "C:\\Users\\73835\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\melange-nvim",
     url = "https://github.com/savq/melange-nvim"
   },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "C:\\Users\\73835\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "C:\\Users\\73835\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "C:\\Users\\73835\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,

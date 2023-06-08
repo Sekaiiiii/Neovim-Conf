@@ -8,10 +8,16 @@ require("plugins")
 require("basic")
 
 -- Auto加载
-require("auto.init")
+require("auto.index")
+
+-- Keybindings加载
+require('keybindings')
 
 -- theme加载
 require('theme')
 
 -- lsp加载
-require('lsp.init')
+require('lsp.setup')
+
+-- cmp加载
+require('cmp.setup')
