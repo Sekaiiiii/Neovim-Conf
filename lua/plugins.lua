@@ -31,6 +31,14 @@ require('packer').startup({
         }
         require("plugin-config.bufferline")
 
+        -- telescope
+        use {
+            'nvim-telescope/telescope.nvim',
+            tag = '0.1.1',
+            requires = {{'nvim-lua/plenary.nvim'}}
+        }
+        require("plugin-config.telescope")
+
         -- comment
         use {'numToStr/Comment.nvim'}
         require('plugin-config.comment')
