@@ -9,14 +9,17 @@ local gitCorrlation = {"gitignore", "gitcommit", "git_config", "git_rebase"}
 local frontEndCorrlation = {
     "html", "css", 'scss', 'vue', 'javascript', 'tsx', 'jsdoc'
 }
-local backEndCorrlation = {"sql"}
+local backEndCorrlation = {"sql", "bash"}
+local pythonCorrlation = {"python"}
 local luaCorrlation = {"lua"}
 local markdownCorrlation = {"markdown"}
+local dockerCorrlation = {"dockerfile"}
 
 local ensure_install_array = _G.concatArray(formattedTextCorrlation,
                                             gitCorrlation, frontEndCorrlation,
                                             backEndCorrlation, luaCorrlation,
-                                            markdownCorrlation);
+                                            pythonCorrlation,
+                                            markdownCorrlation, dockerCorrlation);
 treesitter.setup({
     ensure_installed = ensure_install_array,
     auto_install = true,
@@ -115,3 +118,7 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- 默认不要折叠
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
 vim.opt.foldlevel = 99
+
+-- 文件解析映射
+local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
+parser_mapping.xml = "html" -- map the html parser to be used when using xml files
