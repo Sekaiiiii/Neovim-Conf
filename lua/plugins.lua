@@ -31,6 +31,10 @@ require('packer').startup({
         }
         require("plugin-config.bufferline")
 
+        -- comment
+        use {'numToStr/Comment.nvim'}
+        require('plugin-config.comment')
+
         -- color themes
         use "savq/melange-nvim"
 
