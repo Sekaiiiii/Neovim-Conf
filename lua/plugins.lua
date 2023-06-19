@@ -35,7 +35,16 @@ require('packer').startup({
         use "savq/melange-nvim"
 
         -- treesitter
-        use {"nvim-treesitter/nvim-treesitter"}
+        use {
+            "nvim-treesitter/nvim-treesitter",
+            requires = {
+                {"p00f/nvim-ts-rainbow"},
+                {"JoosepAlviste/nvim-ts-context-commentstring"},
+                {"windwp/nvim-ts-autotag"},
+                {"nvim-treesitter/nvim-treesitter-refactor"},
+                {"nvim-treesitter/nvim-treesitter-textobjects"}
+            }
+        }
         require("plugin-config.nvim-treesitter")
 
         -- lsp corrlation

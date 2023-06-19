@@ -1,5 +1,4 @@
 require('lsp.mason')
-
 require('lsp.mason-lspconfig')
 
 -- require lsp config for each language 

@@ -1,5 +1,6 @@
 local M = {
     config_path = vim.fn.stdpath("config"),
+
     keys = {
         leader_key = "\\",
         -- cmp 

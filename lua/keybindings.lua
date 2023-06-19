@@ -26,6 +26,9 @@ local opts_expr = {expr = true, silent = true}
 keymap("c", keys.c_next_item, "<C-n>", opts_remap)
 keymap("c", keys.c_prev_item, "<C-p>", opts_remap)
 
+-- lsp format
+keymap("n", '<A-f>', ":lua vim.lsp.buf.format()<CR>");
+
 -- save && quit
 -- keymap("n", keys.n_save, ":w<CR>")
 -- keymap("n", keys.n_save_quit, ":wq<CR>")
