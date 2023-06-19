@@ -28,6 +28,17 @@ local M = {
             open_flow = "gp",
             goto_next = "gj",
             goto_prev = "gk"
+        },
+        -- bufferLine
+        bufferLine = {
+            prev = "<A-h>",
+            next = "<A-l>",
+            close = "<leader>cc",
+            close_left = "<leader>ch",
+            close_right = "<leader>cl",
+            close_other = "<leader>co",
+            close_pick = "<leader>cp",
+            pick = "<leader>p"
         }
     },
     nvimTree = {
