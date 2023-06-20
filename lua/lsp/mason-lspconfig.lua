@@ -20,7 +20,7 @@ end
 
 masonLspConfig.setup({
     ensure_installed = {
-        'html', 'cssmodules_ls', 'tsserver', 'volar', 'yamlls', 'lemminx',
+        'html', 'cssmodules_ls','cssls', 'tsserver', 'volar', 'yamlls', 'lemminx',
         'jsonls', 'lua_ls'
     },
     automatic_installation = true,
