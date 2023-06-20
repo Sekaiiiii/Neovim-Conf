@@ -5,8 +5,8 @@ local autoGroup_session = vim.api.nvim_create_augroup("autoGroup_session",
 local autoGroup_autoFold = vim.api.nvim_create_augroup("autoFold",
                                                        {clear = true});
 
-autocmd("SessionLoadPost",
-        {group = autoGroup_session, pattern = "*", command = "NvimTreeToggle"})
+-- autocmd("SessionLoadPost",
+--         {group = autoGroup_session, pattern = "*", command = "NvimTreeToggle"})
 
 autocmd("BufEnter",
         {group = autoGroup_autoFold, pattern = {"*"}, command = "normal zx"})

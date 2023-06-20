@@ -22,6 +22,8 @@ require('packer').startup({
         require("plugin-config.lualine");
 
         -- dashboard
+        use {'glepnir/dashboard-nvim'}
+        require("plugin-config.dashboard")
 
         -- buffer line
         use {
