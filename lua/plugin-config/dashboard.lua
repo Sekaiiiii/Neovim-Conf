@@ -9,7 +9,7 @@ local sessionDictTable = {};
 local cnt = 0;
 for file in vim.fs.dir(path) do
     local folderPath = file
-    folderPath = string.gsub(folderPath, '.vim', '');
+    folderPath = string.sub(folderPath,0,-4);
     folderPath = string.gsub(folderPath, '++', ':');
     folderPath = string.gsub(folderPath, '-', '//');
     sessionDictTable[cnt] = {
