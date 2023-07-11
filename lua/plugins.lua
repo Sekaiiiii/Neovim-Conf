@@ -45,6 +45,10 @@ require('packer').startup({
     use { 'numToStr/Comment.nvim' }
     require('plugin-config.comment')
 
+    -- nvim-toggleterm
+    use { "akinsho/toggleterm.nvim" }
+    require('plugin-config.toggleterm')
+
     -- color themes
     use "savq/melange-nvim"
 
