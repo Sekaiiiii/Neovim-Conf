@@ -49,6 +49,10 @@ require('packer').startup({
     use { "akinsho/toggleterm.nvim" }
     require('plugin-config.toggleterm')
 
+    -- nvim-surround
+    use { "kylechui/nvim-surround" }
+    require('plugin-config.nvim-surround')
+
     -- color themes
     use "savq/melange-nvim"
 
