@@ -60,7 +60,7 @@ treesitter.setup({
             -- Set to false if you have an `updatetime` of ~100.
             clear_on_cursor_move = true
         },
-        highlight_current_scope = {enable = true}
+        highlight_current_scope = {enable = false}
     },
     -- nvim-treesitter/nvim-treesitter-textobjects
     textobjects = {
@@ -115,8 +115,6 @@ treesitter.setup({
 -- 开启 Folding 模块
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- 默认不要折叠
--- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
 vim.opt.foldlevel = 99
 
 -- 文件解析映射

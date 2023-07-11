@@ -11,8 +11,7 @@ end
 
 local function close_nvim_tree() vim.cmd('NvimTreeClose') end
 
-vim.o.sessionoptions =
-"blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 autoSession.setup({
   log_level = "error",

@@ -43,7 +43,12 @@ local M = {
     },
     nvimTree = {
         enable = true,
-        toggle = "<A-m>",
+        menuToggle = '<leader>mt',
+        menuOpen = '<leader>mo',
+        menuClose = '<leader>mc',
+        menuFind = '<leader>mf',
+        menuRefresh = '<leader>mr',
+
         edit = {"o", "<2-LeftMouse>"},
         system_open = "<CR>",
         -- v分屏打开文件
