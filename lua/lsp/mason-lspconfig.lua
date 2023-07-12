@@ -1,7 +1,7 @@
 local status_ok, masonLspConfig = pcall(require, "mason-lspconfig")
 if not status_ok then
-    vim.notify("Plugin Error: can't find mason-lspconfig plugin")
-    return
+  vim.notify("Plugin Error: can't find mason-lspconfig plugin")
+  return
 end
 
 -- local lspCorrlation = {
@@ -19,10 +19,10 @@ end
 --                                             formatterCorrlation);
 
 masonLspConfig.setup({
-    ensure_installed = {
-        'html', 'cssmodules_ls','cssls', 'tsserver', 'volar', 'yamlls', 'lemminx',
-        'jsonls', 'lua_ls'
-    },
-    automatic_installation = true,
-    handlers = nil
+  ensure_installed = {
+    'html', 'cssmodules_ls', 'cssls', 'tsserver', 'volar', 'yamlls', 'lemminx',
+    'jsonls', 'lua_ls'
+  },
+  automatic_installation = true,
+  handlers = nil
 })

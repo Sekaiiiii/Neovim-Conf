@@ -4,7 +4,7 @@ require('util.global')
 -- Packer插件管理
 require("plugins")
 
--- Basic基础配置 
+-- Basic基础配置
 require("basic")
 
 -- Auto加载

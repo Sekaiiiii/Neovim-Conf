@@ -1,7 +1,7 @@
 require('lsp.mason')
 require('lsp.mason-lspconfig')
 
--- require lsp config for each language 
+-- require lsp config for each language
 require('lsp.config.html')
 require('lsp.config.cssmodules_ls')
 require('lsp.config.tsserver')

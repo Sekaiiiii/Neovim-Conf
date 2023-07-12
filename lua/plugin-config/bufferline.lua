@@ -1,7 +1,7 @@
 local status_ok, bufferline = pcall(require, "bufferline")
 if not status_ok then
-    vim.notify("Plugin Error: can't find bufferline plugin")
-    return
+  vim.notify("Plugin Error: can't find bufferline plugin")
+  return
 end
 
 local uConfig = require('uConfig');
@@ -11,20 +11,20 @@ local uBufferLine = uConfig.keys.bufferLine
 vim.opt.termguicolors = true
 
 bufferline.setup({
-    options = {
-        close_command = "bdelete! %d",
-        right_mouse_command = "bdelete! %d",
-        diagnostics = "nvim_lsp",
-        numbers = "ordinal",
-        offsets = {
-            {
-                filetype = "NvimTree",
-                text = " File Explorer",
-                highlight = "Directory",
-                text_align = "left"
-            }
-        }
+  options = {
+    close_command = "bdelete! %d",
+    right_mouse_command = "bdelete! %d",
+    diagnostics = "nvim_lsp",
+    numbers = "ordinal",
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = " File Explorer",
+        highlight = "Directory",
+        text_align = "left"
+      }
     }
+  }
 })
 
 -- 左右Tab切换
@@ -40,7 +40,7 @@ keymap("n", uBufferLine.close_right, ":BufferLineCloseRight<CR>")
 
 -- 关闭其他标签页
 keymap("n", uBufferLine.close_others,
-       ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>")
+  ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>")
 
 -- 关闭选中标签页
 keymap("n", uBufferLine.close_pick, ":BufferLinePickClose<CR>")
@@ -49,12 +49,12 @@ keymap("n", uBufferLine.close_pick, ":BufferLinePickClose<CR>")
 keymap("n", uBufferLine.pick, ":BufferLinePick<CR>")
 
 -- 快捷跳转
-keymap("n","<A-1>",":BufferLineGoToBuffer 1<CR>")
-keymap("n","<A-2>",":BufferLineGoToBuffer 2<CR>")
-keymap("n","<A-3>",":BufferLineGoToBuffer 3<CR>")
-keymap("n","<A-4>",":BufferLineGoToBuffer 4<CR>")
-keymap("n","<A-5>",":BufferLineGoToBuffer 5<CR>")
-keymap("n","<A-6>",":BufferLineGoToBuffer 6<CR>")
-keymap("n","<A-7>",":BufferLineGoToBuffer 7<CR>")
-keymap("n","<A-8>",":BufferLineGoToBuffer 8<CR>")
-keymap("n","<A-9>",":BufferLineGoToBuffer 9<CR>")
+keymap("n", "<A-1>", ":BufferLineGoToBuffer 1<CR>")
+keymap("n", "<A-2>", ":BufferLineGoToBuffer 2<CR>")
+keymap("n", "<A-3>", ":BufferLineGoToBuffer 3<CR>")
+keymap("n", "<A-4>", ":BufferLineGoToBuffer 4<CR>")
+keymap("n", "<A-5>", ":BufferLineGoToBuffer 5<CR>")
+keymap("n", "<A-6>", ":BufferLineGoToBuffer 6<CR>")
+keymap("n", "<A-7>", ":BufferLineGoToBuffer 7<CR>")
+keymap("n", "<A-8>", ":BufferLineGoToBuffer 8<CR>")
+keymap("n", "<A-9>", ":BufferLineGoToBuffer 9<CR>")

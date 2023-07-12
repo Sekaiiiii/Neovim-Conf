@@ -1,1 +1,2 @@
-require'lspconfig'.jsonls.setup {}
+require 'lspconfig'.jsonls.setup {}
+

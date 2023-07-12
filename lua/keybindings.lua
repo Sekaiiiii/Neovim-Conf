@@ -12,15 +12,15 @@ local keys = uConfig.keys
 -- 本地变量
 local map = vim.api.nvim_set_keymap
 
-local opt = {noremap = true, silent = true}
+local opt = { noremap = true, silent = true }
 --------------------------------------------------------------------------
 
 -- leader key 为空
 vim.g.mapleader = keys.leader_key
 vim.g.maplocalleader = keys.leader_key
 
-local opts_remap = {remap = true, silent = true}
-local opts_expr = {expr = true, silent = true}
+local opts_remap = { remap = true, silent = true }
+local opts_expr = { expr = true, silent = true }
 
 -- 命令行下 Ctrl+j/k  上一个下一个
 keymap("c", keys.c_next_item, "<C-n>", opts_remap)
