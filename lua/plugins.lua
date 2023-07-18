@@ -55,6 +55,8 @@ require("packer").startup({
 
     -- color themes
     use("savq/melange-nvim")
+    use("folke/tokyonight.nvim")
+    use("projekt0n/github-nvim-theme")
 
     -- treesitter
     use({
