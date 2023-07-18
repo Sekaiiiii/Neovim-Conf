@@ -1,5 +1,5 @@
 -- lua全局配置
-require('util.global')
+require("util.global")
 
 -- Packer插件管理
 require("plugins")
@@ -11,13 +11,13 @@ require("basic")
 require("auto.index")
 
 -- Keybindings加载
-require('keybindings')
+require("keybindings")
 
 -- theme加载
-require('theme')
+require("theme")
 
 -- lsp加载
-require('lsp.setup')
+require("lsp.setup")
 
 -- cmp加载
-require('cmp.setup')
+require("cmp.setup")

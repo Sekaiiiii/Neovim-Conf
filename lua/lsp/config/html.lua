@@ -1,2 +1,1 @@
-require 'lspconfig'.html.setup {}
-
+require("lspconfig").html.setup({})

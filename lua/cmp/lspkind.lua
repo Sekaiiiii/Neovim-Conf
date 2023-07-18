@@ -1,5 +1,7 @@
 local status, lspkind = pcall(require, "lspkind")
-if not status then return end
+if not status then
+  return
+end
 
 lspkind.init({
   -- default: true
@@ -42,8 +44,8 @@ lspkind.init({
     Struct = "פּ",
     Event = "",
     Operator = "",
-    TypeParameter = ""
-  }
+    TypeParameter = "",
+  },
 })
 
 local M = {}
@@ -60,8 +62,8 @@ M.formatting = {
       -- Source 显示提示来源
       vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
       return vim_item
-    end
-  })
+    end,
+  }),
 }
 
 return M

@@ -6,9 +6,17 @@ end
 
 masonLspConfig.setup({
   ensure_installed = {
-    'clangd', 'html', 'cssls', 'vuels', 'tsserver', 'yamlls', 'lemminx',
-    'jsonls', 'lua_ls', 'eslint'
+    "clangd",
+    "html",
+    "cssls",
+    "vuels",
+    "tsserver",
+    "yamlls",
+    "lemminx",
+    "jsonls",
+    "lua_ls",
+    "eslint",
   },
   automatic_installation = true,
-  handlers = nil
+  handlers = nil,
 })

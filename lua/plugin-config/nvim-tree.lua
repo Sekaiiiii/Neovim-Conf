@@ -1,7 +1,9 @@
 local uConfig = require("uConfig")
 local uTree = uConfig.nvimTree
 
-if uTree == nil or not uTree.enable then return end
+if uTree == nil or not uTree.enable then
+  return
+end
 
 local status, nvim_tree = pcall(require, "nvim-tree")
 if not status then
@@ -251,5 +253,5 @@ nvim_tree.setup({
       profile = false,
       watcher = false,
     },
-  }
+  },
 })

@@ -27,7 +27,7 @@ local M = {
       -- diagnostic
       open_flow = "gp",
       goto_next = "gj",
-      goto_prev = "gk"
+      goto_prev = "gk",
     },
     -- bufferLine
     bufferLine = {
@@ -38,16 +38,16 @@ local M = {
       close_right = "<leader>cl",
       close_other = "<leader>co",
       close_pick = "<leader>cp",
-      pick = "<leader>p"
-    }
+      pick = "<leader>p",
+    },
   },
   nvimTree = {
     enable = true,
-    menuToggle = '<leader>mt',
-    menuOpen = '<leader>mo',
-    menuClose = '<leader>mc',
-    menuFind = '<leader>mf',
-    menuRefresh = '<leader>mr',
+    menuToggle = "<leader>mt",
+    menuOpen = "<leader>mo",
+    menuClose = "<leader>mc",
+    menuFind = "<leader>mf",
+    menuRefresh = "<leader>mr",
 
     edit = { "o", "<2-LeftMouse>" },
     system_open = "<CR>",
@@ -78,9 +78,8 @@ local M = {
     -- 进入下一级
     cd = "]",
     -- 进入上一级
-    dir_up = "["
-  }
-
+    dir_up = "[",
+  },
 }
 
 return M

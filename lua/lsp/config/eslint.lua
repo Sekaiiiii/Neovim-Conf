@@ -1,2 +1,1 @@
-require 'lspconfig'.eslint.setup {}
-
+require("lspconfig").eslint.setup({})

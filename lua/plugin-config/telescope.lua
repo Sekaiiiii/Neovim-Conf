@@ -4,7 +4,7 @@ if not status_ok then
   return
 end
 
-require('telescope').setup {
+require("telescope").setup({
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
@@ -17,9 +17,9 @@ require('telescope').setup {
         ["<C-k>"] = "move_selection_previous",
         ["<C-e>"] = "preview_scrolling_down",
         ["<c-y"] = "preview_scrolling_up",
-        ["<C-h>"] = "which_key"
-      }
-    }
+        ["<C-h>"] = "which_key",
+      },
+    },
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
@@ -36,11 +36,11 @@ require('telescope').setup {
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
-  }
-}
+  },
+})
 
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})

@@ -4,8 +4,12 @@ function _G.log(v)
 end
 
 function _G.keymap(mode, lhs, rhs, opts)
-  if not (type(lhs) == "string") then return end
-  if not (type(rhs) == "string") then return end
+  if not (type(lhs) == "string") then
+    return
+  end
+  if not (type(rhs) == "string") then
+    return
+  end
   opts = opts or {}
   local default_opts = { remap = false, silent = true }
   vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", default_opts, opts))
@@ -22,12 +26,14 @@ function _G.concatArray(...)
     end
     outputArrayLength = outputArrayLength + rowArrayLength
   end
-  return outputArray;
+  return outputArray
 end
 
 function _G.mergeTable(...)
   local tabs = { ... }
-  if not tabs then return {} end
+  if not tabs then
+    return {}
+  end
   local origin = tabs[1]
   for i = 2, #tabs do
     if origin then

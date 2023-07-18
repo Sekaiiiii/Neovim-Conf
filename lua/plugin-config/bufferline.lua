@@ -4,7 +4,7 @@ if not status_ok then
   return
 end
 
-local uConfig = require('uConfig');
+local uConfig = require("uConfig")
 local uBufferLine = uConfig.keys.bufferLine
 
 -- You need to be using termguicolors for this plugin to work, as it reads the hex gui color values of various highlight groups.
@@ -21,10 +21,10 @@ bufferline.setup({
         filetype = "NvimTree",
         text = " File Explorer",
         highlight = "Directory",
-        text_align = "left"
-      }
-    }
-  }
+        text_align = "left",
+      },
+    },
+  },
 })
 
 -- 左右Tab切换
@@ -39,8 +39,7 @@ keymap("n", uBufferLine.close_left, ":BufferLineCloseLeft<CR>")
 keymap("n", uBufferLine.close_right, ":BufferLineCloseRight<CR>")
 
 -- 关闭其他标签页
-keymap("n", uBufferLine.close_others,
-  ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>")
+keymap("n", uBufferLine.close_others, ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>")
 
 -- 关闭选中标签页
 keymap("n", uBufferLine.close_pick, ":BufferLinePickClose<CR>")
