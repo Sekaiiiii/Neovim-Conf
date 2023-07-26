@@ -3,6 +3,7 @@ local M = {
 
   keys = {
     leader_key = "\\",
+
     -- cmp
     cmp_complete = "<A-.>",
     cmp_abort = "<A-,>",
@@ -11,11 +12,13 @@ local M = {
     cmp_scroll_doc_down = "<C-d>",
     cmp_select_prev_item = "<C-k>",
     cmp_select_next_item = "<C-j>",
+
     -- luasnip
     snip_jump_next = "<C-l>",
     snip_jump_prev = "<C-h>",
     snip_next_choice = "<C-j>",
     snip_prev_choice = "<C-k>",
+
     -- lsp
     lsp = {
       rename = "<A-r>",
@@ -29,6 +32,7 @@ local M = {
       goto_next = "gj",
       goto_prev = "gk",
     },
+
     -- bufferLine
     bufferLine = {
       prev = "<A-h>",
