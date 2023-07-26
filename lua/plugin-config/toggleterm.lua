@@ -74,6 +74,6 @@ function _lazygit_toggle()
   lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader>tf", ":TermSelect<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tf", ":TermSelect<CR>1<CR><CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>tg", ":lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 -- keymap("n", "<leader>tn", ":lua newTerminal()<CR>")
