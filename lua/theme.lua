@@ -5,3 +5,9 @@ if not status_ok then
   vim.notify("ColorScheme Error: " .. colorscheme .. " can't find")
   return
 end
+
+require("github-theme").setup({
+  options = {
+    transparent = true,
+  },
+})

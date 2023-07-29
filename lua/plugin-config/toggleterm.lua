@@ -39,7 +39,7 @@ toggleterm.setup({
   },
   shade_terminals = true,   -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
   shading_factor = 0,       -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
-  start_in_insert = true,
+  start_in_insert = false,
   insert_mappings = false,  -- whether or not the open mapping applies in insert mode
   terminal_mappings = false, -- whether or not the open mapping applies in the opened terminals
   persist_size = true,
