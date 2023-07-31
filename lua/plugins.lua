@@ -53,6 +53,10 @@ require("packer").startup({
     use({ "kylechui/nvim-surround" })
     require("plugin-config.nvim-surround")
 
+    -- nvim-autopairs
+    use({ "windwp/nvim-autopairs" })
+    require("plugin-config.nvim-autopairs")
+
     -- buf delete
     use("famiu/bufdelete.nvim")
 
@@ -97,7 +101,7 @@ require("packer").startup({
     use("saadparwaiz1/cmp_luasnip")
     use("rafamadriz/friendly-snippets")
 
-    -- -- lspkind
+    -- lspkind
     use("onsails/lspkind-nvim")
 
     -- null-ls
