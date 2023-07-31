@@ -1,7 +1,6 @@
 " Set Editor Font
  if exists(':GuiFont')
-    " Use GuiFont! to ignore font errors
-    GuiFont Cousine NFM:h11
+    GuiFont FiraCode Nerd Font Mono:h12
 endif
 
 " Disable GUI Tabline
@@ -19,7 +18,6 @@ if exists(':GuiScrollBar')
     GuiScrollBar 0
 endif
 
-
 " Disable GUI TreeView
 if exists(':GuiTreeviewHide')
     GuiTreeviewHide
@@ -34,4 +32,10 @@ endif
 if exists('GuiLinespace')
     GuiLinespace 4
 endif
+
+" Set GuiWindowOpacity
+if exists(':GuiWindowOpacity')
+    GuiWindowOpacity 0.85
+endif
+
 
