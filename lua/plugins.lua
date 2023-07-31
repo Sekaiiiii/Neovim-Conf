@@ -53,6 +53,9 @@ require("packer").startup({
     use({ "kylechui/nvim-surround" })
     require("plugin-config.nvim-surround")
 
+    -- buf delete
+    use("famiu/bufdelete.nvim")
+
     -- color themes
     use("savq/melange-nvim")
     use("folke/tokyonight.nvim")

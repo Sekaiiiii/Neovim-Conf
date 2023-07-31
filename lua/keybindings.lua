@@ -10,7 +10,6 @@ local keys = uConfig.keys
 --   term_mode = "t",
 --   command_mode = "c",
 
--- 本地变量
 local map = vim.api.nvim_set_keymap
 
 local opt = { noremap = true, silent = true }
@@ -23,16 +22,27 @@ vim.g.maplocalleader = keys.leader_key
 -- lsp format
 keymap("n", "<A-f>", ":lua vim.lsp.buf.format()<CR>")
 
--- 交换 $ 和 g_
--- keymap({ "v", "n" }, "$", "g_")
--- keymap({ "v", "n" }, "g_", "$")
--- 交换 0 和 _
--- keymap({ "v", "n" }, "0", "_")
--- keymap({ "v", "n" }, "_", "0")
-
 -- 插件快捷键
 local pluginKeys = {}
 -- lsp 回调函数快捷键设置
+pluginKeys.lspOnAttach = function(mapbuf)
+  -- rename
+  mapbuf("n", "<leader>lrn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
+  -- code action
+  mapbuf("n", "<leader>lca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
+  -- go xx
+  mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+  mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+  mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+  mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+  mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+  -- diagnostic
+  mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
+  mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
+  mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
+  mapbuf("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+end
+
 -- pluginKeys.cmp = function(cmp)
 --     return {
 --         -- 上一个
@@ -60,4 +70,3 @@ local pluginKeys = {}
 -- end
 
 return pluginKeys
-

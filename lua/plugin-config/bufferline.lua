@@ -12,16 +12,16 @@ vim.opt.termguicolors = true
 
 bufferline.setup({
   options = {
-    close_command = "bdelete! %d",
-    right_mouse_command = "bdelete! %d",
+    close_command = "Bdelete! %d",
+    right_mouse_command = "Bdelete! %d",
     diagnostics = "nvim_lsp",
     numbers = "ordinal",
     offsets = {
       {
         filetype = "NvimTree",
-        text = " File Explorer",
+        text = " NvimTree",
         highlight = "Directory",
-        text_align = "left",
+        text_align = "center",
       },
     },
   },
@@ -32,7 +32,7 @@ keymap("n", uBufferLine.prev, ":BufferLineCyclePrev<CR>")
 keymap("n", uBufferLine.next, ":BufferLineCycleNext<CR>")
 
 -- "moll/vim-bbye" 关闭当前 buffer
-keymap("n", uBufferLine.close, ":bdelete!<CR>")
+keymap("n", uBufferLine.close, ":Bdelete!<CR>")
 
 -- 关闭左/右侧标签页
 keymap("n", uBufferLine.close_left, ":BufferLineCloseLeft<CR>")
