@@ -1,5 +1,8 @@
+" def guiFlag var
+let g:guiFlag = 1
+
 " Set Editor Font
- if exists(':GuiFont')
+if exists(':GuiFont')
     GuiFont FiraCode Nerd Font Mono:h12
 endif
 

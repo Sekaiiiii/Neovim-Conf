@@ -1,4 +1,10 @@
-local colorscheme = "github_dark_high_contrast"
+local termColorScheme = "github_dark"
+local guiColorScheme = "github_dark_high_contrast"
+local colorscheme = termColorScheme
+
+if vim.g.guiFlag == 1 then
+  colorscheme = guiColorScheme
+end
 
 require("github-theme").setup({
   options = {
@@ -11,4 +17,3 @@ if not status_ok then
   vim.notify("ColorScheme Error: " .. colorscheme .. " can't find")
   return
 end
-
