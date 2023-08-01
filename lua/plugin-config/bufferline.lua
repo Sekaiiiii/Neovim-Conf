@@ -12,18 +12,36 @@ vim.opt.termguicolors = true
 
 bufferline.setup({
   options = {
+    mode = "buffers",
     close_command = "Bdelete! %d",
     right_mouse_command = "Bdelete! %d",
+    buffer_close_icon = "󰅖",
+    modified_icon = "●",
+    close_icon = "",
     diagnostics = "nvim_lsp",
-    numbers = "ordinal",
+    style_preset = {
+      bufferline.style_preset.no_italic,
+      bufferline.style_preset.no_bold,
+    },
+    tab_size = 1,
+    max_name_length = 30,
+    numbers = function(opts)
+      return string.format("%s", opts.ordinal)
+    end,
     offsets = {
       {
         filetype = "NvimTree",
         text = " NvimTree",
         highlight = "Directory",
         text_align = "center",
+        separator = true,
       },
     },
+    always_show_bufferline = true,
+    indicator = {
+      style = "",
+    },
+    separator_style = { "|", "|" },
   },
 })
 
@@ -39,13 +57,17 @@ keymap("n", uBufferLine.close_left, ":BufferLineCloseLeft<CR>")
 keymap("n", uBufferLine.close_right, ":BufferLineCloseRight<CR>")
 
 -- 关闭其他标签页
-keymap("n", uBufferLine.close_others, ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>")
+keymap("n", uBufferLine.close_other, ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>")
 
 -- 关闭选中标签页
 keymap("n", uBufferLine.close_pick, ":BufferLinePickClose<CR>")
 
 -- 选标签
 keymap("n", uBufferLine.pick, ":BufferLinePick<CR>")
+
+-- 标签栏滚动
+keymap("n", uBufferLine.move_next, ":BufferLineMoveNext<CR>")
+keymap("n", uBufferLine.move_prev, ":BufferLineMovePrev<CR>")
 
 -- 快捷跳转
 keymap("n", "<A-1>", ":BufferLineGoToBuffer 1<CR>")
