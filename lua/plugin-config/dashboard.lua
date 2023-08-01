@@ -34,7 +34,14 @@ if cnt > 0 then
   end
 end
 
-local configCenterBaseTable = {
+local configCenterBaseTable = {}
+
+local configCenterTable = configCenterBaseTable
+if cnt > 0 then
+  configCenterTable = _G.mergeTable(configCenterTable, sessionQuickStartItemTable)
+end
+
+local configCenterTable1 = {
   {
     icon = "  ",
     desc = "Recently files                      ",
@@ -46,11 +53,7 @@ local configCenterBaseTable = {
     action = "Telescope find_files",
   },
 }
-
-local configCenterTable = configCenterBaseTable
-if cnt > 0 then
-  configCenterTable = _G.mergeTable(configCenterBaseTable, sessionQuickStartItemTable)
-end
+configCenterTable = _G.mergeTable(configCenterTable, configCenterTable1)
 
 dashboard.setup({
   theme = "doom",
@@ -60,18 +63,28 @@ dashboard.setup({
       [[]],
       [[]],
       [[]],
-      [[]],
-      [[]],
-      [[]],
-      [[          ▀████▀▄▄              ▄█ ]],
-      [[            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ]],
-      [[    ▄        █          ▀▀▀▀▄  ▄▀  ]],
-      [[   ▄▀ ▀▄      ▀▄              ▀▄▀  ]],
-      [[  ▄▀    █     █▀   ▄█▀▄      ▄█    ]],
-      [[  ▀▄     ▀▄  █     ▀██▀     ██▄█   ]],
-      [[   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ]],
-      [[    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ]],
-      [[   █   █  █      ▄▄           ▄▀   ]],
+      [[      ___           ___           ___           ___                 ]],
+      [[     /\__\         /\__\         /|  |         /\  \                ]],
+      [[    /:/ _/_       /:/ _/_       |:|  |        /::\  \       ___     ]],
+      [[   /:/ /\  \     /:/ /\__\      |:|  |       /:/\:\  \     /\__\    ]],
+      [[  /:/ /::\  \   /:/ /:/ _/_   __|:|  |      /:/ /::\  \   /:/__/    ]],
+      [[ /:/_/:/\:\__\ /:/_/:/ /\__\ /\ |:|__|____ /:/_/:/\:\__\ /::\  \    ]],
+      [[ \:\/:/ /:/  / \:\/:/ /:/  / \:\/:::::/__/ \:\/:/  \/__/ \/\:\  \__ ]],
+      [[  \::/ /:/  /   \::/_/:/  /   \::/~~/~      \::/__/       ~~\:\/\__\]],
+      [[   \/_/:/  /     \:\/:/  /     \:\~~\        \:\  \          \::/  /]],
+      [[     /:/  /       \::/  /       \:\__\        \:\__\         /:/  / ]],
+      [[     \/__/         \/__/         \/__/         \/__/         \/__/  ]],
+      [[                                         ___                        ]],
+      [[               ___                      /\  \                       ]],
+      [[              /\  \        ___         |::\  \                      ]],
+      [[              \:\  \      /\__\        |:|:\  \                     ]],
+      [[               \:\  \    /:/__/      __|:|\:\  \                    ]],
+      [[           ___  \:\__\  /::\  \     /::::|_\:\__\                   ]],
+      [[          /\  \ |:|  |  \/\:\  \__  \:\~~\  \/__/                   ]],
+      [[          \:\  \|:|  |   ~~\:\/\__\  \:\  \                         ]],
+      [[           \:\__|:|__|      \::/  /   \:\  \                        ]],
+      [[            \::::/__/       /:/  /     \:\__\                       ]],
+      [[             ~~~~           \/__/       \/__/                       ]],
       [[]],
       [[]],
     },

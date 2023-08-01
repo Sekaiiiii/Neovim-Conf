@@ -32,7 +32,7 @@ vim.o.smartindent = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 -- 搜索高亮
-vim.o.hlsearch = true
+vim.o.hlsearch = false
 -- 边输入边搜索
 vim.o.incsearch = true
 -- 命令行高为2，提供足够的显示空间
@@ -69,3 +69,5 @@ vim.o.listchars = "space:·,tab:··"
 vim.o.pumheight = 10
 -- 永远显示 tabline
 vim.o.showtabline = 2
+-- 修改分割线
+vim.o.fillchars = "vert:|"

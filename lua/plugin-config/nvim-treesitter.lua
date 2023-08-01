@@ -134,7 +134,7 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 
 -- 文件解析映射
-local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
-
-parser_mapping.xml = "html" -- map the html parser to be used when using xml files
-parser_mapping.less = "css"
+-- local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
+--
+-- parser_mapping.xml = "html" -- map the html parser to be used when using xml files
+-- parser_mapping.less = "css"
