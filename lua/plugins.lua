@@ -107,6 +107,11 @@ require("packer").startup({
     -- null-ls
     use("jose-elias-alvarez/null-ls.nvim")
     require("plugin-config.null-ls")
+
+    -- nvim-ufo
+    use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+    require("plugin-config.nvim-ufo")
+
   end,
 }, {
   git = {

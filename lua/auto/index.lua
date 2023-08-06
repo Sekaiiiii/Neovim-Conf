@@ -10,8 +10,8 @@ local autoGroup_autoFold = vim.api.nvim_create_augroup("autoFold", { clear = tru
 -- autocmd("BufEnter",
 --         {group = autoGroup_autoFold, pattern = {"*"}, command = "normal zx"})
 
-autocmd("TextChanged", {
-  group = autoGroup_autoFold,
-  pattern = "*",
-  command = "lua vim.opt.foldexpr='nvim_treesitter#foldexpr()'",
-})
+-- autocmd("TextChanged", {
+--   group = autoGroup_autoFold,
+--   pattern = "*",
+--   command = "lua vim.opt.foldexpr='nvim_treesitter#foldexpr()'",
+-- })

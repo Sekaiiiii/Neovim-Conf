@@ -129,9 +129,9 @@ treesitter.setup({
 })
 
 -- 开启 Folding 模块
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 99
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldlevel = 99
 
 -- 文件解析映射
 -- local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
