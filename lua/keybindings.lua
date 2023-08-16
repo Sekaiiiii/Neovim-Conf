@@ -19,11 +19,20 @@ local opts_expr = { expr = true, silent = true }
 vim.g.mapleader = keys.leader_key
 vim.g.maplocalleader = keys.leader_key
 
+-- windows control
+keymap("n", "<leader>bd", "<cmd>bdelete! %<CR>")
+keymap("n", "<leader>wc", "<cmd>close<CR>")
+keymap("n", "<leader>wj", "<cmd>new<CR>")
+keymap("n", "<leader>wl", "<cmd>vnew<CR>")
+keymap("n", "<leader>ws", "<cmd>split<CR>")
+keymap("n", "<leader>wvs", "<cmd>vsplit<CR>")
+
 -- lsp format
 keymap("n", "<A-f>", ":lua vim.lsp.buf.format()<CR>")
 
 -- 插件快捷键
 local pluginKeys = {}
+
 -- lsp 回调函数快捷键设置
 pluginKeys.lspOnAttach = function(mapbuf)
   -- rename
