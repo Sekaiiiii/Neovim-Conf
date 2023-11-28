@@ -1,3 +1,6 @@
+-- 自定义lua变量
+require("var")
+
 -- lua全局配置
 require("util.global")
 
