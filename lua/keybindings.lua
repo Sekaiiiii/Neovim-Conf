@@ -25,6 +25,7 @@ keymap("v", "<C-x>", '"+x')
 keymap("v", "<C-v>", '"+p')
 keymap("i", "<C-v>", '<Esc>"+pa')
 keymap("t", "<C-v>", '<C-\\><C-n>"+pa')
+keymap("c", "<C-v>", "<Insert>")
 
 -- windows control
 keymap("n", "<leader>bd", "<cmd>bdelete! %<CR>")
@@ -35,10 +36,10 @@ keymap("n", "<leader>ws", "<cmd>split<CR>")
 keymap("n", "<leader>wvs", "<cmd>vsplit<CR>")
 
 -- windows size control
-keymap("n", "<A-Up>", "<C-w>+");
-keymap("n", "<A-Down>", "<C-w>-");
-keymap("n", "<A-Left>", "<C-w><");
-keymap("n", "<A-Right>", "<C-w>>");
+keymap("n", "<A-Up>", "<C-w>+")
+keymap("n", "<A-Down>", "<C-w>-")
+keymap("n", "<A-Left>", "<C-w><")
+keymap("n", "<A-Right>", "<C-w>>")
 
 -- lsp format
 keymap("n", "<A-f>", ":lua vim.lsp.buf.format()<CR>")

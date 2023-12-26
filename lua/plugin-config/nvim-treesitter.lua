@@ -49,24 +49,6 @@ treesitter.setup({
   },
   -- 启用代码缩进模块 (=)
   indent = { enable = true },
-  -- p00f/nvim-ts-rainbow
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = 10000, -- Do not enable for files with more than n lines, int
-    colors = {
-      "#95ca60",
-      "#ee6985",
-      "#D6A760",
-      "#7794f4",
-      "#b38bf5",
-      "#7cc7fe",
-    }, -- table of hex strings
-    -- termcolors = { } -- table of colour name strings
-  },
-  -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
-  context_commentstring = { enable = true, enable_autocmd = false },
   -- https://github.com/windwp/nvim-ts-autotag
   autotag = { enable = true },
   -- nvim-treesitter/nvim-treesitter-refactor

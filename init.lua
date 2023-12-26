@@ -24,3 +24,6 @@ require("lsp.setup")
 
 -- cmp加载
 require("cmp.setup")
+
+-- Gui初始化
+require("gui")

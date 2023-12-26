@@ -2,7 +2,7 @@ local termColorScheme = "github_dark"
 local guiColorScheme = "github_dark_high_contrast"
 local colorscheme = termColorScheme
 
-if vim.g.guiFlag then
+if vim.fn.has("gui_running") == 1 then
   colorscheme = guiColorScheme
 end
 
