@@ -41,6 +41,20 @@ require("packer").startup({
     })
     require("plugin-config.telescope")
 
+    -- leap
+    use({
+      "ggandor/leap.nvim",
+      lazy = true,
+    })
+    require('plugin-config.leap')
+
+    -- flit
+    use({
+      "ggandor/flit.nvim",
+      lazy = true,
+    })
+    require('plugin-config.flit')
+
     -- comment
     use({ "numToStr/Comment.nvim" })
     require("plugin-config.comment")
@@ -97,9 +111,9 @@ require("packer").startup({
 
     -- nvim-cmp
     use({ "hrsh7th/cmp-nvim-lsp" }) -- { name = nvim_lsp }
-    use({ "hrsh7th/cmp-buffer" }) -- { name = 'buffer' },
-    use({ "hrsh7th/cmp-path" })   -- { name = 'path' }
-    use({ "hrsh7th/cmp-cmdline" }) -- { name = 'cmdline' }
+    use({ "hrsh7th/cmp-buffer" })   -- { name = 'buffer' },
+    use({ "hrsh7th/cmp-path" })     -- { name = 'path' }
+    use({ "hrsh7th/cmp-cmdline" })  -- { name = 'cmdline' }
     use({ "hrsh7th/nvim-cmp" })
 
     -- vsnip
