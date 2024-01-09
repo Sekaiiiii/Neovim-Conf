@@ -20,6 +20,7 @@ local pythonCorrlation = { "python" }
 local luaCorrlation = { "lua" }
 local markdownCorrlation = { "markdown" }
 local dockerCorrlation = { "dockerfile" }
+local otherCorrlation = {"markdown_inline","regex"}
 
 local ensure_install_array = _G.concatArray(
   formattedTextCorrlation,
@@ -29,7 +30,8 @@ local ensure_install_array = _G.concatArray(
   luaCorrlation,
   pythonCorrlation,
   markdownCorrlation,
-  dockerCorrlation
+  dockerCorrlation,
+  otherCorrlation
 )
 treesitter.setup({
   ensure_installed = ensure_install_array,
