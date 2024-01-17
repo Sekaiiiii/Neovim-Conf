@@ -20,7 +20,7 @@ local pythonCorrlation = { "python" }
 local luaCorrlation = { "lua" }
 local markdownCorrlation = { "markdown" }
 local dockerCorrlation = { "dockerfile" }
-local otherCorrlation = {"markdown_inline","regex"}
+local otherCorrlation = { "markdown_inline", "regex" }
 
 local ensure_install_array = _G.concatArray(
   formattedTextCorrlation,
@@ -36,7 +36,7 @@ local ensure_install_array = _G.concatArray(
 treesitter.setup({
   ensure_installed = ensure_install_array,
   auto_install = true,
-  sync_install = true,
+  sync_install = false,
   -- 启用代码高亮模块
   highlight = { enable = true, additional_vim_regex_highlighting = false },
   -- 启用增量选择模块
@@ -111,14 +111,3 @@ treesitter.setup({
     },
   },
 })
-
--- 开启 Folding 模块
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- vim.opt.foldlevel = 99
-
--- 文件解析映射
--- local parser_mapping = require("nvim-treesitter.parsers").filetype_to_parsername
---
--- parser_mapping.xml = "html" -- map the html parser to be used when using xml files
--- parser_mapping.less = "css"

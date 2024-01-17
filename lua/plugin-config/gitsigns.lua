@@ -25,12 +25,12 @@ gitsigns.setup({
   current_line_blame_opts = {
     virt_text = true,
     virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-    delay = 1000,
+    delay = 500,
     ignore_whitespace = false,
   },
   current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
   sign_priority = 6,
-  update_debounce = 100,
+  update_debounce = 1000,
   status_formatter = nil, -- Use default
   max_file_length = 10000, -- Disable if file is longer than this (in lines)
   preview_config = {

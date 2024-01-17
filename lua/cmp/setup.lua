@@ -3,11 +3,6 @@ if not status then
   return
 end
 
-local status, luasnip = pcall(require, "luasnip")
-if not status then
-  return
-end
-
 local status, config = pcall(require, "uConfig")
 if not status then
   return
@@ -48,17 +43,11 @@ local mapping = {
 
 cmp.setup({
   -- 指定 snippet 引擎 luasnip
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
   window = { completion = cmp.config.window.bordered() },
   -- 快捷键
   mapping = mapping,
   -- 来源
   sources = cmp.config.sources({
-    { name = "luasnip",  group_index = 1 },
     { name = "nvim_lsp", group_index = 1 },
     { name = "buffer",   group_index = 2 },
     { name = "path",     group_index = 2 },
@@ -81,7 +70,7 @@ cmp.setup.cmdline(":", {
 })
 
 cmp.setup.filetype({ "markdown", "help" }, {
-  sources = { { name = "luasnip" }, { name = "buffer" }, { name = "path" } },
+  sources = { { name = "buffer" }, { name = "path" } },
 })
 
 -- require("cmp.luasnip")

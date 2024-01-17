@@ -3,6 +3,22 @@ function _G.log(v)
   return v
 end
 
+function _G.printTable(t, indent)
+  indent = indent or 1
+
+  for key, value in pairs(t) do
+    local formatting = string.rep("  ", indent)
+
+    if type(value) == "table" then
+      print(formatting .. key .. " = {")
+      printTable(value, indent + 1)
+      print(formatting .. "}")
+    else
+      print(formatting .. key .. " = " .. tostring(value))
+    end
+  end
+end
+
 function _G.keymap(mode, lhs, rhs, opts)
   if not (type(lhs) == "string") then
     return

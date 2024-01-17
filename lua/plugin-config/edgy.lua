@@ -19,7 +19,7 @@ local config_opts = {
   },
   -- edgebar animations
   animate = {
-    enabled = true,
+    enabled = false,
     fps = 100, -- frames per second
     cps = 120, -- cells per second
     on_begin = function()
@@ -40,7 +40,7 @@ local config_opts = {
   exit_when_last = false,
   -- close edgy when all windows are hidden instead of opening one of them
   -- disable to always keep at least one edgy split visible in each open section
-  close_when_all_hidden = true,
+  close_when_all_hidden = false,
   -- global window options for edgebar windows
   ---@type vim.wo
   wo = {
@@ -118,25 +118,34 @@ local config_opts = {
 }
 
 local actual_opts = {
+  options = {
+    left = { size = 40 },
+    right = { size = 0.3 },
+  },
+  wo = {
+    -- Setting to `true`, will add an edgy winbar.
+    -- Setting to `false`, won't set any winbar.
+    -- Setting to a string, will set the winbar to that string.
+    winbar = true,
+    winfixwidth = false,
+    winfixheight = false,
+    winhighlight = "WinBar:EdgyWinBar,Normal:EdgyNormal",
+    spell = false,
+    signcolumn = "no",
+  },
+  animate = {
+    enabled = false,
+  },
   bottom = {
     -- toggleterm / lazyterm at the bottom with a height of 40% of the screen
     {
       ft = "toggleterm",
-      size = { height = 0.3 },
+      size = { height = 0.4 },
       -- exclude floating windows
       filter = function(buf, win)
         return vim.api.nvim_win_get_config(win).relative == ""
       end,
     },
-    {
-      ft = "help",
-      size = { height = 20 },
-      -- only show help buffers
-      filter = function(buf)
-        return vim.bo[buf].buftype == "help"
-      end,
-    },
-    { ft = "spectre_panel", size = { height = 0.4 } },
   },
   left = {
     -- Neo-tree filesystem always takes half the screen height
@@ -148,32 +157,23 @@ local actual_opts = {
       end,
       size = { height = 0.5 },
     },
+  },
+  right = {
     {
-      title = "Neo-Tree Git",
-      ft = "neo-tree",
+      ft = "help",
+      -- only show help buffers
       filter = function(buf)
-        return vim.b[buf].neo_tree_source == "git_status"
+        return vim.bo[buf].buftype == "help"
       end,
-      pinned = true,
-      open = "Neotree position=right git_status",
-    },
-    {
-      title = "Neo-Tree Buffers",
-      ft = "neo-tree",
-      filter = function(buf)
-        return vim.b[buf].neo_tree_source == "buffers"
-      end,
-      pinned = true,
-      open = "Neotree position=top buffers",
     },
     {
       ft = "Outline",
-      pinned = true,
       open = "SymbolsOutlineOpen",
+      filter = function(buf)
+        return vim.bo[buf].buftype == "help"
+      end,
     },
-    -- any other neo-tree windows
-    "neo-tree",
-  },
+  }
 }
 
 edgy.setup(actual_opts)

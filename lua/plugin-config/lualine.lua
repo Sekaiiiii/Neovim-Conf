@@ -12,10 +12,12 @@ lualine.setup({
     section_separators = { left = "", right = "" },
     globalstatus = true,
     refresh = {
-      statusline = 100,
+      statusline = 1000,
       tabline = 1000,
       winbar = 1000,
     },
+    disabled_filetypes = {
+    }
   },
   sections = {
     lualine_a = {
@@ -38,5 +40,5 @@ lualine.setup({
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {},
+  extensions = { 'neo-tree', 'toggleterm', 'mason', 'lazy', 'symbols-outline' },
 })

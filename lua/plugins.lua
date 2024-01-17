@@ -13,10 +13,16 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   {
-    "kyazdani42/nvim-tree.lua",
-    dependencies = { "kyazdani42/nvim-web-devicons" },
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
     config = function()
-      require("plugin-config.nvim-tree")
+      require("plugin-config.neo-tree")
     end,
   },
   {
@@ -25,12 +31,13 @@ local plugins = {
       require("plugin-config.auto-session")
     end,
   },
-  {
-    "glepnir/dashboard-nvim",
-    config = function()
-      require("plugin-config.dashboard")
-    end,
-  },
+{
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function ()
+      require("plugin-config.alpha")
+    end
+},
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "kyazdani42/nvim-web-devicons" },

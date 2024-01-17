@@ -8,11 +8,11 @@ end
 
 vim.notify = require("notify").setup({
   background_colour = "Normal",
-  render = "minimal",
-  timeout = 3000,
+  render = "compact",
+  timeout = 1000,
   fps = 1,
   stages = "static",
-  max_width = math.floor(vim.api.nvim_win_get_width(0) / 1.2),
+  max_width = math.floor(vim.api.nvim_win_get_width(0) / 2),
   max_height = math.floor(vim.api.nvim_win_get_width(0) / 2),
 })
 

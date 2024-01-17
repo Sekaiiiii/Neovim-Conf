@@ -4,16 +4,11 @@ if not status_ok then
   return
 end
 
-local function restore_nvim_tree()
-  local nvim_tree = require("nvim-tree")
-  nvim_tree.change_dir(vim.fn.getcwd())
-end
-
-local function close_nvim_tree()
-  vim.cmd("NvimTreeClose")
-end
-
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+function close_neo_tree()
+  vim.cmd("Neotree close")
+end
 
 autoSession.setup({
   log_level = "error",
@@ -29,6 +24,6 @@ autoSession.setup({
   auto_session_use_git_branch = nil,
   -- the configs below are lua only
   bypass_session_save_file_types = nil,
-  pre_save_cmds = { close_nvim_tree },
-  post_restore_cmds = { restore_nvim_tree },
+  pre_save_cmds = { close_neo_tree },
+  post_restore_cmds = {},
 })

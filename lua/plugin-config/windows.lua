@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 
-require('windows').setup({
+windows.setup({
   autowidth = {
     enable = false,
   },
@@ -31,6 +31,6 @@ local function cmd(command)
 end
 
 vim.keymap.set('n', '<C-w>z', cmd 'WindowsMaximize')
-vim.keymap.set('n', '<C-w>_', cmd 'WindowsMaximizeVertically')
-vim.keymap.set('n', '<C-w>|', cmd 'WindowsMaximizeHorizontally')
-vim.keymap.set('n', '<C-w>=', cmd 'WindowsEqualize')
+vim.keymap.set('n', '<c-w>_', cmd 'WindowsMaximizeVertically')
+vim.keymap.set('n', '<c-w>|', cmd 'WindowsMaximizeHorizontally')
+vim.keymap.set('n', '<c-w>=', cmd 'WindowsEqualize')
