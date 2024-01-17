@@ -71,3 +71,7 @@ vim.o.pumheight = 10
 vim.o.showtabline = 2
 -- 修改分割线
 vim.o.fillchars = "vert:|"
+
+vim.o.winwidth = 10
+vim.o.winminwidth = 10
+vim.o.equalalways = false

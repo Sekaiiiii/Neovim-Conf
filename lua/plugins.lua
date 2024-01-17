@@ -197,7 +197,17 @@ local plugins = {
       require("plugin-config.window-picker")
     end,
   },
-}
+  {
+    "anuvyklack/windows.nvim",
+    lazy = true,
+    cmd = { "WindowsMaximize", "WindowsMaximizeVertically", "WindowsMaximizeHorizontally", "WindowsEqualize" },
+    dependencies = {
+      "anuvyklack/middleclass",
+    },
+    config = function()
+      require("plugin-config.windows")
+    end,
+  } }
 local opts = {}
 
 require("lazy").setup(plugins, opts)
