@@ -7,7 +7,7 @@ if not status_ok then
 end
 
 vim.notify = require("notify").setup({
-  background_colour = "Normal",
+  background_colounr = "Normal",
   render = "compact",
   timeout = 1000,
   fps = 1,

@@ -39,7 +39,7 @@ toggleterm.setup({
   },
   shade_terminals = true,   -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
   shading_factor = 0,       -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
-  start_in_insert = false,
+  start_in_insert = true,
   insert_mappings = false,  -- whether or not the open mapping applies in insert mode
   terminal_mappings = false, -- whether or not the open mapping applies in the opened terminals
   persist_size = true,
@@ -49,15 +49,15 @@ toggleterm.setup({
   shell = vim.o.shell,
   auto_scroll = true,       -- automatically scroll to the bottom on terminal output
   winbar = {
-    enabled = false,
+    enabled = true,
     name_formatter = function(term) --  term: Terminal
       return term.name
     end,
   },
 })
 
-local lazygit = Terminal:new({
-  cmd = "lazygit",
+local gituiTerm = Terminal:new({
+  cmd = "gitui",
   direction = "float",
   float_opts = {
     border = "single",
@@ -70,10 +70,9 @@ local lazygit = Terminal:new({
   end,
 })
 
-function _lazygit_toggle()
-  lazygit:toggle()
+function toggleterm_gituiToggle()
+  gituiTerm:toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>tf", ":TermSelect<CR>1<CR><CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>tg", ":lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
--- keymap("n", "<leader>tn", ":lua newTerminal()<CR>")
+vim.api.nvim_set_keymap("n", "<leader>tg", ":lua toggleterm_gituiToggle()<CR>", { noremap = true, silent = true })

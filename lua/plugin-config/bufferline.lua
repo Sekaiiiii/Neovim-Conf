@@ -30,8 +30,8 @@ bufferline.setup({
     end,
     offsets = {
       {
-        filetype = "NvimTree",
-        text = " NvimTree",
+        filetype = "neo-tree",
+        text = "neo-tree",
         highlight = "Directory",
         text_align = "center",
         separator = true,
@@ -39,7 +39,7 @@ bufferline.setup({
     },
     always_show_bufferline = true,
     indicator = {
-      style = "",
+      style = "none",
     },
     separator_style = { "|", "|" },
   },

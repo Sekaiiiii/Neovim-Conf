@@ -38,4 +38,4 @@ local opts = {
   symbol_blacklist = {},
 }
 
-outline.setup(opt)
+outline.setup(opts)

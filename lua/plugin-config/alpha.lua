@@ -4,13 +4,13 @@ if not status_ok then
   return
 end
 
-local dashboard = require 'alpha.themes.dashboard'
+local dashboard = require("alpha.themes.dashboard")
 
 function getSessionInfo()
   local path = vim.fn.stdpath("data") .. "\\sessions"
 
   local sessionDictTable = {}
-  local cnt = 0;
+  local cnt = 0
   for file in vim.fs.dir(path) do
     local folderPath = file
     folderPath = string.sub(folderPath, 0, -4)
@@ -25,9 +25,9 @@ function getSessionInfo()
   end
 
   if cnt < 1 then
-    return nil;
+    return nil
   else
-    return sessionDictTable;
+    return sessionDictTable
   end
 end
 
@@ -52,14 +52,14 @@ local defaultBtnTable = {
 
 local sessionInfo = getSessionInfo()
 
-if type(sessionInfo) ~= 'table' then
-  dashboard.section.buttons.val = defaultBtnTable;
+if type(sessionInfo) ~= "table" then
+  dashboard.section.buttons.val = defaultBtnTable
 else
   local sessionBtnTable = {}
   for i = 0, #sessionInfo, 1 do
     local btnName = "Session: " .. sessionInfo[i].name
-    local btnOp   = "<CMD>lua sessionClick(\"" .. sessionInfo[i].folderPath .. "\")<CR>"
-    table.insert(sessionBtnTable, dashboard.button(';', btnName, btnOp))
+    local btnOp = '<CMD>lua sessionClick("' .. sessionInfo[i].folderPath .. '")<CR>'
+    table.insert(sessionBtnTable, dashboard.button(";", btnName, btnOp))
   end
   dashboard.section.buttons.val = _G.mergeTable(sessionBtnTable, defaultBtnTable)
 end

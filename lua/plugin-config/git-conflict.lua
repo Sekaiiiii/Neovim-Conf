@@ -4,4 +4,4 @@ if not status then
   return
 end
 
-git_conflict.setup()
+git_conflict.setup({})
