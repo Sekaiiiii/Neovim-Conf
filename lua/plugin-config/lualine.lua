@@ -8,8 +8,8 @@ lualine.setup({
   options = {
     icons_enabled = true,
     theme = "auto",
-    component_separators = { left = ">", right = "<" },
-    section_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
     globalstatus = true,
     refresh = {
       statusline = 1000,
@@ -28,17 +28,13 @@ lualine.setup({
         end,
       },
     },
-    lualine_b = { "branch", "diff" },
+    lualine_b = { "branch", "diff", "diagnostics" },
     lualine_c = {
-      require("auto-session.lib").current_session_name,
-      "filename",
-    },
+      "filename", },
     lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_y = { "progress" },
-    lualine_z = { "location" },
+    lualine_y = { "progress", "location" },
+    lualine_z = { "windows" },
   },
-  tabline = {},
   winbar = {},
-  inactive_winbar = {},
-  extensions = { 'neo-tree', 'toggleterm', 'mason', 'lazy', 'symbols-outline' },
+  extensions = { 'nvim-tree', 'toggleterm', 'mason', 'lazy', 'symbols-outline' },
 })

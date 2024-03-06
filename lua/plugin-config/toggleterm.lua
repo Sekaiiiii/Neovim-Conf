@@ -1,10 +1,9 @@
-local uConfig = require("uConfig")
-
 local status, toggleterm = pcall(require, "toggleterm")
 if not status then
   vim.notify("Plugin Error: can't find toggleterm plugin")
   return
 end
+
 local Terminal = require("toggleterm.terminal").Terminal
 
 toggleterm.setup({

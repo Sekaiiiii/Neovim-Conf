@@ -13,17 +13,14 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
+    "nvim-tree/nvim-tree.lua",
     dependencies = {
-      "nvim-lua/plenary.nvim",
+
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
-      require("plugin-config.neo-tree")
-    end,
+      require('plugin-config.nvim-tree')
+    end
   },
   {
     "rmagatti/auto-session",
@@ -31,13 +28,13 @@ local plugins = {
       require("plugin-config.auto-session")
     end,
   },
-{
+  {
     'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
+    config = function()
       require("plugin-config.alpha")
     end
-},
+  },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "kyazdani42/nvim-web-devicons" },
@@ -179,23 +176,23 @@ local plugins = {
       require("plugin-config.edgy")
     end,
   },
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      require("plugin-config.nvim-notify")
-    end,
-  },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    config = function()
-      require("plugin-config.noice")
-    end,
-  },
+  -- {
+  --   "rcarriga/nvim-notify",
+  --   config = function()
+  --     require("plugin-config.nvim-notify")
+  --   end,
+  -- },
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --   },
+  --   config = function()
+  --     require("plugin-config.noice")
+  --   end,
+  -- },
   {
     "s1n7ax/nvim-window-picker",
     lazy = true,
@@ -214,7 +211,31 @@ local plugins = {
     config = function()
       require("plugin-config.windows")
     end,
-  } }
+  },
+  {
+    "nathom/filetype.nvim",
+    lazy = true,
+    event = { "BufRead", "BufNewFile" },
+    config = function()
+      require("filetype").setup({
+        overrides = {
+          extensions = {
+            h = "cpp",
+          },
+        }
+      })
+    end
+  },
+  {
+    "folke/todo-comments.nvim",
+    lazy = true,
+    event = { "User FileOpened" },
+    config = function()
+      require("todo-comments").setup()
+    end,
+  }
+
+}
 local opts = {}
 
 require("lazy").setup(plugins, opts)

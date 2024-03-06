@@ -4,11 +4,10 @@ if not status_ok then
   return
 end
 
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions =
+"blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
-function close_neo_tree()
-  vim.cmd("Neotree close")
-end
+function closeNvimTree() vim.cmd("NvimTreeClose") end
 
 autoSession.setup({
   log_level = "error",
@@ -24,6 +23,6 @@ autoSession.setup({
   auto_session_use_git_branch = nil,
   -- the configs below are lua only
   bypass_session_save_file_types = nil,
-  pre_save_cmds = { close_neo_tree },
-  post_restore_cmds = {},
+  pre_save_cmds = { closeNvimTree },
+  post_restore_cmds = {}
 })

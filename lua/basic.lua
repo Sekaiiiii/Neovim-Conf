@@ -1,7 +1,7 @@
 -- utf8
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
--- jkhl 移动时光标周围保留8行
+-- jkhl 移动时光标周围保留2行
 vim.o.scrolloff = 2
 vim.o.sidescrolloff = 2
 -- 使用相对行号
@@ -53,7 +53,7 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
 -- smaller updatetime
-vim.o.updatetime = 300
+vim.o.updatetime = 100
 -- split window 从下边和右边出现
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -70,8 +70,5 @@ vim.o.pumheight = 10
 -- 永远显示 tabline
 vim.o.showtabline = 2
 -- 修改分割线
-vim.o.fillchars = "vert:|"
+-- vim.o.fillchars = "vert:|"
 
-vim.o.winwidth = 10
-vim.o.winminwidth = 10
-vim.o.equalalways = false

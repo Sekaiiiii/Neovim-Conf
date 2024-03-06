@@ -1,4 +1,4 @@
--- load lsp ui config 
+-- load lsp ui config
 require("lsp.ui")
 
 local status_ok, mason = pcall(require, "mason")

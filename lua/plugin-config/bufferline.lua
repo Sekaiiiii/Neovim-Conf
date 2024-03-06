@@ -28,15 +28,6 @@ bufferline.setup({
     numbers = function(opts)
       return string.format("%s", opts.ordinal)
     end,
-    offsets = {
-      {
-        filetype = "neo-tree",
-        text = "neo-tree",
-        highlight = "Directory",
-        text_align = "center",
-        separator = true,
-      },
-    },
     always_show_bufferline = true,
     indicator = {
       style = "none",
