@@ -2,8 +2,8 @@
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
 -- jkhl 移动时光标周围保留2行
-vim.o.scrolloff = 2
-vim.o.sidescrolloff = 2
+vim.o.scrolloff = 0
+vim.o.sidescrolloff = 0
 -- 使用相对行号
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -38,8 +38,8 @@ vim.o.incsearch = true
 -- 命令行高为2，提供足够的显示空间
 vim.o.cmdheight = 2
 -- 当文件被外部程序修改时，自动加载
-vim.o.autoread = true
-vim.bo.autoread = true
+vim.o.autoread = false
+vim.bo.autoread = false
 -- 禁止折行
 vim.wo.wrap = false
 -- 光标在行首尾时<Left><Right>可以跳到下一行
@@ -70,5 +70,4 @@ vim.o.pumheight = 10
 -- 永远显示 tabline
 vim.o.showtabline = 2
 -- 修改分割线
--- vim.o.fillchars = "vert:|"
-
+vim.o.fillchars = "vert:|"

@@ -233,8 +233,136 @@ local plugins = {
     config = function()
       require("todo-comments").setup()
     end,
+  },
+  {
+    "windwp/nvim-spectre",
+    lazy = true,
+    cmd = { "Spectre" },
+    config = function()
+      require("spectre").setup()
+    end,
+  },
+  {
+    "folke/trouble.nvim",
+    lazy = true,
+    cmd = { "TroubleToggle", "Trouble", "TroubleRefresh" },
+    config = function()
+      require("trouble").setup()
+    end,
+  },
+  {
+    "rmagatti/goto-preview",
+    lazy = true,
+    keys = { "gp" },
+    config = function()
+      require("goto-preview").setup({
+        width = 120,
+        height = 25,
+        default_mappings = true,
+        debug = false,
+        opacity = nil,
+        post_open_hook = nil,
+        -- You can use "default_mappings = true" setup option
+        -- Or explicitly set keybindings
+        -- vim.cmd("nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+        -- vim.cmd("nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
+        -- vim.cmd("nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>")
+      })
+    end,
+  },
+  {
+    "ethanholz/nvim-lastplace",
+    lazy = true,
+    event = { "User FileOpened" },
+    config = function()
+      require("nvim-lastplace").setup({
+        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+        lastplace_ignore_filetype = {
+          "gitcommit",
+          "gitrebase",
+          "svn",
+          "hgcommit",
+        },
+        lastplace_open_folds = true,
+      })
+    end,
+  },
+  {
+    "kevinhwang91/nvim-bqf",
+    -- quickfix preview and other functions
+    lazy = true,
+    event = { "WinNew" },
+    config = function()
+      require("bqf").setup({
+        auto_enable = true,
+        auto_resize_height = true,
+        preview = {
+          win_height = 12,
+          win_vheight = 12,
+          delay_syntax = 80,
+          border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
+          should_preview_cb = function(bufnr, qwinid)
+            local ret = true
+            local bufname = vim.api.nvim_buf_get_name(bufnr)
+            local fsize = vim.fn.getfsize(bufname)
+            if fsize > 100 * 1024 then
+              -- skip file size greater than 100k
+              ret = false
+            elseif bufname:match("^fugitive://") then
+              -- skip fugitive buffer
+              ret = false
+            end
+            return ret
+          end,
+        },
+        func_map = {
+          drop = "o",
+          openc = "O",
+          split = "<C-s>",
+          tabdrop = "<C-t>",
+          tabc = "",
+          vsplit = "<C-v>",
+          ptogglemode = "z,",
+          stoggleup = "",
+        },
+        filter = {
+          fzf = {
+            action_for = { ["ctrl-s"] = "split", ["ctrl-t"] = "tab drop" },
+            extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+          },
+        },
+      })
+    end,
+  },
+  {
+    "chentoast/marks.nvim",
+    lazy = true,
+    event = { "User FileOpened" },
+    config = function()
+      require("marks").setup({
+        default_mappings = true,
+        -- builtin_marks = { ".", "<", ">", "^" },
+        cyclic = true,
+        force_write_shada = false,
+        refresh_interval = 250,
+        sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
+        excluded_filetypes = {
+          "qf",
+          "NvimTree",
+          "toggleterm",
+          "TelescopePrompt",
+          "alpha",
+          "netrw",
+        },
+        bookmark_0 = {
+          sign = "",
+          virt_text = "hello world",
+          annotate = false,
+        },
+        mappings = {},
+      })
+    end,
   }
-
 }
 local opts = {}
 

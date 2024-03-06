@@ -48,7 +48,8 @@ keymap("n", uBufferLine.close_left, ":BufferLineCloseLeft<CR>")
 keymap("n", uBufferLine.close_right, ":BufferLineCloseRight<CR>")
 
 -- 关闭其他标签页
-keymap("n", uBufferLine.close_other, ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>")
+keymap("n", uBufferLine.close_other, ":BufferLineCloseOthers<CR>")
+keymap("n", uBufferLine.close_all, ":BufferLineCloseOthers<CR>:Bdelete!<CR>")
 
 -- 关闭选中标签页
 keymap("n", uBufferLine.close_pick, ":BufferLinePickClose<CR>")
