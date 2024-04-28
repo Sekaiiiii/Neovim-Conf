@@ -4,8 +4,8 @@ if not status_ok then
 	return
 end
 
-require("treesitter-context").setup({
-	enable = true,
+treesitter_context.setup({
+	enable = false,
 	throttle = true,
 	max_lines = 0,
 	patterns = {

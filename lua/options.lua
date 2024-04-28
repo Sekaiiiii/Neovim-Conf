@@ -15,7 +15,7 @@ vim.wo.relativenumber = true
 -- 高亮所在行
 vim.wo.cursorline = true
 -- 显示左侧图标指示列
-vim.wo.signcolumn = "yes"
+vim.wo.signcolumn = "yes:2"
 -- 右侧参考线，超过表示代码太长了，考虑换行
 vim.wo.colorcolumn = "0"
 -- 缩进2个空格等于一个Tab
@@ -70,9 +70,9 @@ vim.g.completeopt = "menu,menuone,noselect,noinsert"
 vim.o.list = false
 -- 不可见字符的显示，这里只把空格显示为一个点
 vim.o.listchars = "space:·,tab:··"
--- 补全最多显示10行
-vim.o.pumheight = 10
+-- 补全最多显示15行
+vim.o.pumheight = 15
 -- 永远显示 tabline
 -- vim.o.showtabline = 2
 -- 修改分割线
-vim.o.fillchars = "vert:|"
+-- vim.o.fillchars = "vert:|"

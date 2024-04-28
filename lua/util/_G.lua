@@ -3,6 +3,12 @@ function _G.log(v)
   return v
 end
 
+function _G.execute_vim_script(script_file)
+  local path = vim.fn.stdpath("config") .. "\\" .. script_file;
+  local cmd = "source " .. path
+  vim.api.nvim_exec(cmd,false)
+end
+
 function _G.printTable(t, indent)
   indent = indent or 1
 

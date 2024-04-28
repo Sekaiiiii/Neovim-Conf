@@ -15,7 +15,7 @@ local opts = {
       vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
     -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-    require("keybindings").lspOnAttach(buf_set_keymap)
+    require("mappings").lsp.onAttach(buf_set_keymap)
   end,
 }
 
