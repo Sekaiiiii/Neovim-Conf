@@ -73,5 +73,3 @@ function toggleterm_gituiToggle()
   gituiTerm:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader>tf", ":TermSelect<CR>1<CR><CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>tg", ":lua toggleterm_gituiToggle()<CR>", { noremap = true, silent = true })

@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 local actual_opts = {
-  options = { left = { size = 50 }, right = { size = 0.3 } },
+  options = { left = { size = 35 }, right = { size = 0.3 } },
   wo = {
     -- Setting to `true`, will add an edgy winbar.
     -- Setting to `false`, won't set any winbar.
@@ -20,7 +20,7 @@ local actual_opts = {
   animate = { enabled = false },
   exit_when_last = true,
   close_when_all_hidden = true,
-  left = { { ft = "NvimTree", title = "NvimTree" } },
+  left = { --[[ { ft = "NvimTree", title = "NvimTree" } ]] },
   bottom = {
     {
       ft = "toggleterm",

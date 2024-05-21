@@ -1,5 +1,5 @@
 -- utf8
-vim.g.encoding = "UTF-8"
+vim.g.encoding = "utf-8"
 vim.o.fileencoding = "utf-8"
 -- jkhl 移动时光标周围保留2行
 vim.o.scrolloff = 0
@@ -8,7 +8,7 @@ vim.o.sidescrolloff = 0
 vim.wo.number = true
 vim.wo.relativenumber = true
 -- 高亮所在行
-vim.wo.cursorline = true
+vim.wo.cursorline = false
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
 -- 右侧参考线，超过表示代码太长了，考虑换行
@@ -22,8 +22,8 @@ vim.o.shiftround = true
 vim.o.shiftwidth = 2
 vim.bo.shiftwidth = 2
 -- 空格替代tab
-vim.o.expandtab = true
-vim.bo.expandtab = true
+-- vim.o.expandtab = true
+-- vim.bo.expandtab = true
 -- 新行对齐当前行
 vim.o.autoindent = true
 vim.bo.autoindent = true
@@ -71,3 +71,6 @@ vim.o.pumheight = 10
 vim.o.showtabline = 2
 -- 修改分割线
 vim.o.fillchars = "vert:|"
+-- timeout
+vim.o.timeout = true
+vim.o.timeoutlen = 500

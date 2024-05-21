@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -9,13 +10,13 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
-
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     },
     config = function()
@@ -147,12 +148,6 @@ local plugins = {
   { "saadparwaiz1/cmp_luasnip" },
   { "rafamadriz/friendly-snippets" },
   { "onsails/lspkind-nvim" },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function()
-      require("plugin-config.null-ls")
-    end,
-  },
   {
     "kevinhwang91/nvim-ufo",
     dependencies = { "kevinhwang91/promise-async" },
@@ -362,8 +357,21 @@ local plugins = {
         mappings = {},
       })
     end,
-  }
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    config = require('plugin-config.whick-key')
+  },
+{
+  'stevearc/conform.nvim',
+  event = "VeryLazy",
+   opts = {},
+		config= function()require("plugin-config.conform") end
 }
+	}
+
+
 local opts = {}
 
 require("lazy").setup(plugins, opts)

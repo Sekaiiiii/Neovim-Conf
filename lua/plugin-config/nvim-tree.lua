@@ -4,10 +4,6 @@ if not status_ok then
   return
 end
 
-vim.keymap.set("n", '<leader>mf', function() vim.cmd('NvimTreeFindFile') end)
-vim.keymap.set("n", '<leader>mc', function() vim.cmd('NvimTreeClose') end)
-vim.keymap.set("n", '<leader>mo', function() vim.cmd('NvimTreeOpen') end)
-
 nvim_tree.setup({
   on_attach = "default",
   hijack_cursor = false,
@@ -33,9 +29,9 @@ nvim_tree.setup({
     side = "left",
     preserve_window_proportions = false,
     number = false,
-    relativenumber = false,
+    relativenumber = true,
     signcolumn = "yes",
-    width = 50,
+    width = 35,
     float = {
       enable = false,
       quit_on_focus_loss = true,
@@ -54,7 +50,7 @@ nvim_tree.setup({
     group_empty = false,
     full_name = false,
     root_folder_label = ":~:s?$?/..?",
-    indent_width = 2,
+    indent_width = 1,
     special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
     symlink_destination = true,
     highlight_git = "none",

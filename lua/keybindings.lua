@@ -1,96 +1,126 @@
-local uConfig = require("uConfig")
+local uConfig = require('uConfig');
 
-local keys = uConfig.keys
+vim.g.mapleader = uConfig.leader_key;
+vim.g.maplocalleader = uConfig.leader_key;
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
 
-local map = vim.api.nvim_set_keymap
+local M = {};
 
-local opt = { noremap = true, silent = true }
-local opts_remap = { remap = true, silent = true }
-local opts_expr = { expr = true, silent = true }
+M.cmp_keys = {
+    cmp_complete = "<A-.>",
+    cmp_abort = "<A-,>",
+    cmp_confirm = "<CR>",
+    cmp_scroll_doc_up = "<C-e>",
+    cmp_scroll_doc_down = "<C-y>",
+    cmp_select_prev_item = "<S-Tab>",
+    cmp_select_next_item = "<Tab>",
+}
 
-vim.g.mapleader = keys.leader_key
-vim.g.maplocalleader = keys.leader_key
+M.lsp_keys = {
+	rename = '<leader>lrn',
+	code_action = '<leader>lca',
+	go_definition = '<leader>lgd',
+	go_diagnostic = '<leader>lgp',
+	diagnostic_prev = '<leader>ldp',
+	diagnostic_next = '<leader>ldn',
+	format = '<leader>lff',
+}
 
 -- Ctrl-c Ctrl-v
-keymap("v", "<C-c>", '"+y')
-keymap("v", "<C-x>", '"+x')
-keymap("v", "<C-v>", '"+p')
-keymap("i", "<C-v>", '<Esc>"+pa')
-keymap("t", "<C-v>", '<C-\\><C-n>"+pa')
-keymap("c", "<C-v>", "<Insert>")
+vim.keymap.set("v", "<C-c>", '"+y')
+vim.keymap.set("v", "<C-x>", '"+x')
+vim.keymap.set("v", "<C-v>", '"+p')
+vim.keymap.set("i", "<C-v>", '<Esc>"+pa')
+vim.keymap.set("t", "<C-v>", '<C-\\><C-n>"+pa')
+vim.keymap.set("c", "<C-v>", '<C-r>+')
 
 -- windows control
-keymap("n", "<leader>bd", "<cmd>bdelete! %<CR>")
-keymap("n", "<leader>wc", "<cmd>close<CR>")
-keymap("n", "<leader>wj", "<cmd>new<CR>")
-keymap("n", "<leader>wl", "<cmd>vnew<CR>")
-keymap("n", "<leader>ws", "<cmd>split<CR>")
-keymap("n", "<leader>wvs", "<cmd>vsplit<CR>")
+vim.keymap.set("n","<C-h>","<C-w>h");
+vim.keymap.set("n","<C-l>","<C-w>l");
+vim.keymap.set("n","<C-j>","<C-w>j");
+vim.keymap.set("n","<C-k>","<C-w>k");
+vim.keymap.set("n", "<leader>wc", "<cmd>close<CR>")
+vim.keymap.set("n", "<leader>wnn", "<cmd>new<CR>")
+vim.keymap.set("n", "<leader>wnv", "<cmd>vnew<CR>")
+vim.keymap.set("n", "<leader>wss", "<cmd>split<CR>")
+vim.keymap.set("n", "<leader>wsv", "<cmd>vsplit<CR>")
+
+-- window shortcut
+vim.keymap.set('n', '<C-w>z', function() vim.cmd 'WindowsMaximize' end) 
+vim.keymap.set('n', '<c-w>_', function() vim.cmd 'WindowsMaximizeVertically'end)
+vim.keymap.set('n', '<c-w>|', function() vim.cmd 'WindowsMaximizeHorizontally' end)
+vim.keymap.set('n', '<c-w>=', function() vim.cmd 'WindowsEqualize' end)
+
+-- window-picker shortcut
+vim.keymap.set("n", "<leader>wpp", function()
+  require('plugin-config.window-picker').pick_window()
+end, { desc = "Pick Window" })
+vim.keymap.set("n", "<leader>wps", function()
+  require('plugin-config.window-picker').swap_window()
+end, { desc = "Swap Window" })
 
 -- windows size control
-keymap("n", "<A-Up>", "<C-w>+")
-keymap("n", "<A-Down>", "<C-w>-")
-keymap("n", "<A-Left>", "<C-w><")
-keymap("n", "<A-Right>", "<C-w>>")
+vim.keymap.set("n", "<A-Up>", "<C-w>+")
+vim.keymap.set("n", "<A-Down>", "<C-w>-")
+vim.keymap.set("n", "<A-Left>", "<C-w><")
+vim.keymap.set("n", "<A-Right>", "<C-w>>")
 
--- lsp format
-keymap("n", "<A-f>",
-  [[:lua vim.lsp.buf.format({filter = function(client) return client.name ~= "tsserver" end, timeout_ms = 5000})<CR>]])
+-- bufferline shortcut
+vim.keymap.set("n", "<A-1>", ":BufferLineGoToBuffer 1<CR>")
+vim.keymap.set("n", "<A-2>", ":BufferLineGoToBuffer 2<CR>")
+vim.keymap.set("n", "<A-3>", ":BufferLineGoToBuffer 3<CR>")
+vim.keymap.set("n", "<A-4>", ":BufferLineGoToBuffer 4<CR>")
+vim.keymap.set("n", "<A-5>", ":BufferLineGoToBuffer 5<CR>")
+vim.keymap.set("n", "<A-6>", ":BufferLineGoToBuffer 6<CR>")
+vim.keymap.set("n", "<A-7>", ":BufferLineGoToBuffer 7<CR>")
+vim.keymap.set("n", "<A-8>", ":BufferLineGoToBuffer 8<CR>")
+vim.keymap.set("n", "<A-9>", ":BufferLineGoToBuffer 9<CR>")
 
--- 插件快捷键
-local pluginKeys = {}
+vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<leader>bcc", ":Bdelete!<CR>")
+vim.keymap.set("n", "<leader>bcl", ":BufferLineCloseLeft<CR>")
+vim.keymap.set("n", "<leader>bcr", ":BufferLineCloseRight<CR>")
+vim.keymap.set("n", "<leader>bco", ":BufferLineCloseOthers<CR>")
+vim.keymap.set("n", "<leader>bca", ":BufferLineCloseOthers<CR>:Bdelete!<CR>")
+vim.keymap.set("n", "<leader>bcp", ":BufferLinePickClose<CR>")
+vim.keymap.set("n", "<leader>bp", ":BufferLinePick<CR>")
+vim.keymap.set("n", "<leader>bsl", ":BufferLineMoveNext<CR>")
+vim.keymap.set("n", "<leader>bsr", ":BufferLineMovePrev<CR>")
 
--- lsp 回调函数快捷键设置
-pluginKeys.lspOnAttach = function(mapbuf)
-  -- rename
-  mapbuf("n", "<leader>lrn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
-  -- code action
-  mapbuf("n", "<leader>lca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
-  -- go xx
-  mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-  mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-  mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
-  mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
-  mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
-  -- diagnostic
-  mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
-  mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
-  mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
-  mapbuf("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
-end
+-- nvim-tree shortcut
+vim.keymap.set("n", '<leader>mf', function() vim.cmd('NvimTreeFindFile') end)
+vim.keymap.set("n", '<leader>mc', function() vim.cmd('NvimTreeClose') end)
+vim.keymap.set("n", '<leader>mo', function() vim.cmd('NvimTreeOpen') end)
 
--- pluginKeys.cmp = function(cmp)
---     return {
---         -- 上一个
---         ['<C-k>'] = cmp.mapping.select_prev_item(),
---         -- 下一个
---         ['<C-j>'] = cmp.mapping.select_next_item(),
---         -- 出现补全
---         ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
---         -- 取消
---         ['<A-,>'] = cmp.mapping({
---             i = cmp.mapping.abort(),
---             c = cmp.mapping.close()
---         }),
---         -- 确认
---         -- Accept currently selected item. If none selected, `select` first item.
---         -- Set `select` to `false` to only confirm explicitly selected items.
---         ['<CR>'] = cmp.mapping.confirm({
---             select = true,
---             behavior = cmp.ConfirmBehavior.Replace
---         }),
---         -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
---         ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
---         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'})
---     }
--- end
+-- telescope shortcut
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>fn", function()
+  require("telescope").extensions.notify.notify()
+end)
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
-return pluginKeys
+-- ufo   
+vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
+vim.keymap.set("n", "zp", function()
+  local winid = require("ufo").peekFoldedLinesUnderCursor()
+  if not winid then
+    return;
+  end
+end)
+
+-- toggleterm shortcut
+vim.keymap.set("n", "<leader>tf", ":TermSelect<CR>1<CR><CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tg", ":lua toggleterm_gituiToggle()<CR>", { noremap = true, silent = true })
+
+-- lsp shortcut
+
+
+return M;
+

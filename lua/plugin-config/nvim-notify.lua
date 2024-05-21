@@ -37,6 +37,3 @@ vim.cmd("highlight link NotifyINFOBody Normal")
 vim.cmd("highlight link NotifyDEBUGBody Normal")
 vim.cmd("highlight link NotifyTRACEBody Normal")
 
-vim.keymap.set("n", "<leader>fn", function()
-  require("telescope").extensions.notify.notify()
-end)

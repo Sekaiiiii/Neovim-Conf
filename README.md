@@ -1,15 +1,15 @@
-## Myself Neovim Config
+# sekaiiiii neovim config
+
 ## Required
-- Nerd Fonts.
-- Neovim v0.8.x.
-- Node.js v16+.
-- Git command
+- Nerd Fonts
+- neovim > 9.0
+- node
+- git 
+### telescope requirment
+- fd 
+- rg live-grep
+### treesitter requirment
+- node
+- cc
+
 ## Config Step
-
-### 1. install packer
-``` 
-cd ~/AppData/Local
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ./nvim-data/site/pack/packer/start/packer.nvim
-```
-
-### 2. 

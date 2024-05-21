@@ -13,9 +13,6 @@ require("basic")
 -- Auto加载
 require("auto.index")
 
--- Keybindings加载
-require("keybindings")
-
 -- theme加载
 require("theme")
 
@@ -25,5 +22,10 @@ require("lsp.setup")
 -- cmp加载
 require("cmp.setup")
 
+-- Keybindings加载
+require("keybindings")
+
 -- Gui初始化
 require("gui")
+
+

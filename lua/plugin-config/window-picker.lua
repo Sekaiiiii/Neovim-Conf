@@ -1,8 +1,4 @@
-local status_ok, picker = pcall(require, "window-picker")
-if not status_ok then
-  vim.notify("Plugin Error: can't find nvim-window-picker plugin")
-  return
-end
+local M = {};
 
 local picker = require("window-picker")
 
@@ -20,16 +16,14 @@ picker.setup({
   prompt_message = 'Pick window: ',
 })
 
-
-vim.keymap.set("n", "<leader>ww", function()
+function M.pick_window()
   local picked_window_id = picker.pick_window({
     include_current_win = true,
   }) or vim.api.nvim_get_current_win()
   vim.api.nvim_set_current_win(picked_window_id)
-end, { desc = "Pick a window" })
+end
 
--- Swap two windows using the awesome window picker
-local function swap_windows()
+function M.swap_window()
   local window = picker.pick_window({
     include_current_win = false,
   })
@@ -40,4 +34,4 @@ local function swap_windows()
   vim.api.nvim_win_set_buf(0, target_buffer)
 end
 
-vim.keymap.set("n", "<leader>ws", swap_windows, { desc = "Swap windows" })
+return M;
