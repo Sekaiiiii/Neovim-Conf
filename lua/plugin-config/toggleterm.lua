@@ -24,18 +24,6 @@ toggleterm.setup({
   hide_numbers = false,                           -- hide the number column in toggleterm buffers
   shade_filetypes = {},
   autochdir = true,                               -- when neovim changes it current directory the terminal will change it's own when next it's opened
-  highlights = {
-    Normal = {
-      guibg = 0,
-    },
-    NormalFloat = {
-      link = "Normal",
-    },
-    FloatBorder = {
-      guifg = 0,
-      guibg = 0,
-    },
-  },
   shade_terminals = true,   -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
   shading_factor = 0,       -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
   start_in_insert = true,
@@ -64,12 +52,17 @@ local gituiTerm = Terminal:new({
     height = math.floor(vim.o.lines * 0.9),
     zindex = 5,
   },
-  on_open = function(term)
-    vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<ESC>", "<ESC>", { noremap = true, silent = true })
-  end,
 })
 
 function toggleterm_gituiToggle()
   gituiTerm:toggle()
 end
 
+
+local M = {}
+
+function M.newTerminal()
+
+end
+
+return M;

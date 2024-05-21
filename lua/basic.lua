@@ -70,7 +70,15 @@ vim.o.pumheight = 10
 -- 永远显示 tabline
 vim.o.showtabline = 2
 -- 修改分割线
-vim.o.fillchars = "vert:|"
+-- vim.o.fillchars = "vert: "
 -- timeout
 vim.o.timeout = true
 vim.o.timeoutlen = 500
+
+
+-- edgy
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
+-- Default splitting will cause your main splits to jump when opening an edgebar.
+-- To prevent this, set `splitkeep` to either `screen` or `topline`.
+vim.opt.splitkeep = "screen"

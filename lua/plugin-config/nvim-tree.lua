@@ -4,6 +4,10 @@ if not status_ok then
   return
 end
 
+function nvim_on_attach(bufnr)
+	local api = require('nvim-tree.api')
+end
+
 nvim_tree.setup({
   on_attach = "default",
   hijack_cursor = false,
