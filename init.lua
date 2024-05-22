@@ -1,17 +1,17 @@
--- 自定义lua变量
-require("var")
+-- 加载nvim_gui_shim.vim文件
+vim.cmd('source ' .. vim.fn.stdpath('config') .. '/nvim_gui_shim.vim')
 
--- lua全局配置
+-- lua全局util
 require("util.global")
 
--- Basic基础配置
+-- basic基础配置
 require("basic")
 
--- Packer插件管理
+-- plugin插件管理 
 require("plugins")
 
--- Auto加载
-require("auto.index")
+-- auto加载
+require("auto.setup")
 
 -- theme加载
 require("theme")
@@ -22,10 +22,8 @@ require("lsp.setup")
 -- cmp加载
 require("cmp.setup")
 
--- Keybindings加载
+-- keybindings加载
 require("keybindings")
 
--- Gui初始化
+-- gui初始化
 require("gui")
-
-

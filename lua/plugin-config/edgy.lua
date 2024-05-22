@@ -7,8 +7,8 @@ end
 local actual_opts = {
 	options = { left = { size = 35 }, right = { size = 35 } },
 	icons = {
-		closed = "  ",
-		open = "  ",
+		closed = "  ",
+		open = "   ",
 	},
 	wo = {
 		-- Setting to `true`, will add an edgy winbar.
@@ -22,7 +22,7 @@ local actual_opts = {
 		signcolumn = "no"
 	},
 	animate = { enabled = false },
-	exit_when_last = true,
+	exit_when_last = false,
 	close_when_all_hidden = false,
 	left = {
 		{

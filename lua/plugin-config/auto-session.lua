@@ -5,9 +5,9 @@ if not status_ok then
 end
 
 vim.o.sessionoptions =
-"blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+"blank,buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions"
 
-function closeNvimTree() vim.cmd("NvimTreeClose") end
+local function close_nvim_tree() vim.cmd("NvimTreeClose") end
 
 autoSession.setup({
   log_level = "error",
@@ -23,6 +23,6 @@ autoSession.setup({
   auto_session_use_git_branch = nil,
   -- the configs below are lua only
   bypass_session_save_file_types = nil,
-  pre_save_cmds = { closeNvimTree },
+  pre_save_cmds = { close_nvim_tree },
   post_restore_cmds = {}
 })

@@ -142,7 +142,7 @@ require("noice").setup({
     },
     message = {
       -- Messages shown by lsp servers
-      enabled = true,
+      enabled = false,
       view = "notify",
       opts = {},
     },

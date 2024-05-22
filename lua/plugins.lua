@@ -20,8 +20,8 @@ local plugins = {
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 		},
 		config = function()
-			require('plugin-config.nvim-tree')
-		end
+			require("plugin-config.nvim-tree")
+		end,
 	},
 	{
 		"rmagatti/auto-session",
@@ -30,11 +30,11 @@ local plugins = {
 		end,
 	},
 	{
-		'goolord/alpha-nvim',
-		dependencies = { 'nvim-tree/nvim-web-devicons' },
+		"goolord/alpha-nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("plugin-config.alpha")
-		end
+		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
@@ -138,16 +138,23 @@ local plugins = {
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig" },
 	{ "neovim/nvim-lspconfig" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-cmdline" },
+	-- 补全引擎
 	{ "hrsh7th/nvim-cmp" },
-	{ "hrsh7th/cmp-vsnip" },
-	{ "hrsh7th/vim-vsnip" },
+	-- Snippet 引擎
+	{ "L3MON4D3/LuaSnip" },
 	{ "saadparwaiz1/cmp_luasnip" },
+	-- 补全源
+	{ "hrsh7th/cmp-vsnip" },
+	{ "hrsh7th/cmp-nvim-lsp" }, -- { name = nvim_lsp }
+	{ "hrsh7th/cmp-buffer" }, -- { name = 'buffer' },
+	{ "hrsh7th/cmp-path" }, -- { name = 'path' }
+	{ "hrsh7th/cmp-cmdline" }, -- { name = 'cmdline' }
+	{ "hrsh7th/cmp-nvim-lsp-signature-help" }, -- { name = 'nvim_lsp_signature_help' }
+	-- 常见编程语言代码段
 	{ "rafamadriz/friendly-snippets" },
+	-- UI 增强
 	{ "onsails/lspkind-nvim" },
+	{ "tami5/lspsaga.nvim" },
 	{
 		"kevinhwang91/nvim-ufo",
 		dependencies = { "kevinhwang91/promise-async" },
@@ -217,9 +224,9 @@ local plugins = {
 					extensions = {
 						h = "cpp",
 					},
-				}
+				},
 			})
-		end
+		end,
 	},
 	{
 		"folke/todo-comments.nvim",
@@ -361,16 +368,17 @@ local plugins = {
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
-		config = require('plugin-config.whick-key')
+		config = require("plugin-config.whick-key"),
 	},
 	{
-		'stevearc/conform.nvim',
+		"stevearc/conform.nvim",
 		event = "VeryLazy",
 		opts = {},
-		config = function() require("plugin-config.conform") end
-	}
+		config = function()
+			require("plugin-config.conform")
+		end,
+	},
 }
-
 
 local opts = {}
 

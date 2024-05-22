@@ -1,10 +1,9 @@
-local config = require('config');
+local config = require("config")
 
-vim.g.mapleader = config.leader_key;
-vim.g.maplocalleader = config.leader_key;
+vim.g.mapleader = config.leader_key
+vim.g.maplocalleader = config.leader_key
 
-
-local M = {};
+local M = {}
 
 M.cmp_keys = {
 	cmp_complete = "<A-.>",
@@ -16,17 +15,24 @@ M.cmp_keys = {
 	cmp_select_next_item = "<Tab>",
 }
 
+M.snip_keys = {
+	snip_jump_next = "<C-j>",
+	snip_jump_prev = "<C-k>",
+	snip_next_choice = "<C-h>",
+	snip_prev_choice = "<C-l>",
+}
+
 M.lsp_keys = {
-	rename = '<leader>lrn',
-	code_action = '<leader>lca',
-	go_definition = '<leader>lgd',
-	go_hover = '<leader>lgh',
-	go_declaration = '<leader>lgD',
-	go_implementation = '<leader>lgi',
-	go_references = '<leader>lgr',
-	diagnostic_prev = '<leader>ldp',
-	diagnostic_next = '<leader>ldn',
-	format = '<leader>lff',
+	rename = "<leader>lrn",
+	code_action = "<leader>lca",
+	go_definition = "<leader>lgd",
+	go_hover = "<leader>lgh",
+	go_declaration = "<leader>lgD",
+	go_implementation = "<leader>lgi",
+	go_references = "<leader>lgr",
+	diagnostic_prev = "<leader>ldp",
+	diagnostic_next = "<leader>ldn",
+	format = "<leader>lf",
 }
 
 -- Ctrl-c Ctrl-v
@@ -35,13 +41,13 @@ vim.keymap.set("v", "<C-x>", '"+x')
 vim.keymap.set("v", "<C-v>", '"+p')
 vim.keymap.set("i", "<C-v>", '<Esc>"+pa')
 vim.keymap.set("t", "<C-v>", '<C-\\><C-n>"+pa')
-vim.keymap.set("c", "<C-v>", '<C-r>+')
+vim.keymap.set("c", "<C-v>", "<C-r>+")
 
 -- windows control
-vim.keymap.set("n", "<C-h>", "<C-w>h");
-vim.keymap.set("n", "<C-l>", "<C-w>l");
-vim.keymap.set("n", "<C-j>", "<C-w>j");
-vim.keymap.set("n", "<C-k>", "<C-w>k");
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<leader>wc", "<cmd>close<CR>")
 vim.keymap.set("n", "<leader>wnn", "<cmd>new<CR>")
 vim.keymap.set("n", "<leader>wnv", "<cmd>vnew<CR>")
@@ -49,17 +55,25 @@ vim.keymap.set("n", "<leader>wss", "<cmd>split<CR>")
 vim.keymap.set("n", "<leader>wsv", "<cmd>vsplit<CR>")
 
 -- window shortcut
-vim.keymap.set('n', '<C-w>z', function() vim.cmd 'WindowsMaximize' end)
-vim.keymap.set('n', '<c-w>_', function() vim.cmd 'WindowsMaximizeVertically' end)
-vim.keymap.set('n', '<c-w>|', function() vim.cmd 'WindowsMaximizeHorizontally' end)
-vim.keymap.set('n', '<c-w>=', function() vim.cmd 'WindowsEqualize' end)
+vim.keymap.set("n", "<C-w>z", function()
+	vim.cmd("WindowsMaximize")
+end)
+vim.keymap.set("n", "<c-w>_", function()
+	vim.cmd("WindowsMaximizeVertically")
+end)
+vim.keymap.set("n", "<c-w>|", function()
+	vim.cmd("WindowsMaximizeHorizontally")
+end)
+vim.keymap.set("n", "<c-w>=", function()
+	vim.cmd("WindowsEqualize")
+end)
 
 -- window-picker shortcut
 vim.keymap.set("n", "<leader>wpp", function()
-	require('plugin-config.window-picker').pick_window()
+	require("plugin-config.window-picker").pick_window()
 end, { desc = "Pick Window" })
 vim.keymap.set("n", "<leader>wps", function()
-	require('plugin-config.window-picker').swap_window()
+	require("plugin-config.window-picker").swap_window()
 end, { desc = "Swap Window" })
 
 -- windows size control
@@ -81,7 +95,7 @@ vim.keymap.set("n", "<A-9>", "<cmd>BufferLineGoToBuffer 9<CR>")
 
 vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>")
-vim.keymap.set("n", "<leader>bcc", "<cmd>Bdelete!<CR>")
+vim.keymap.set("n", "<leader>bc", "<cmd>Bdelete!<CR>")
 vim.keymap.set("n", "<leader>bcl", "<cmd>BufferLineCloseLeft<CR>")
 vim.keymap.set("n", "<leader>bcr", "<cmd>BufferLineCloseRight<CR>")
 vim.keymap.set("n", "<leader>bco", "<cmd>BufferLineCloseOthers<CR>")
@@ -92,9 +106,15 @@ vim.keymap.set("n", "<leader>bsl", "<cmd>BufferLineMoveNext<CR>")
 vim.keymap.set("n", "<leader>bsr", "<cmd>BufferLineMovePrev<CR>")
 
 -- nvim-tree shortcut
-vim.keymap.set("n", '<leader>mf', function() vim.cmd('NvimTreeFindFile') end)
-vim.keymap.set("n", '<leader>mc', function() vim.cmd('NvimTreeClose') end)
-vim.keymap.set("n", '<leader>mo', function() vim.cmd('NvimTreeOpen') end)
+vim.keymap.set("n", "<leader>mf", function()
+	vim.cmd("NvimTreeFindFile")
+end)
+vim.keymap.set("n", "<leader>mc", function()
+	vim.cmd("NvimTreeClose")
+end)
+vim.keymap.set("n", "<leader>mo", function()
+	vim.cmd("NvimTreeOpen")
+end)
 
 -- telescope shortcut
 local builtin = require("telescope.builtin")
@@ -114,27 +134,54 @@ vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
 vim.keymap.set("n", "zp", function()
 	local winid = require("ufo").peekFoldedLinesUnderCursor()
 	if not winid then
-		return;
+		return
 	end
 end)
 
 -- toggleterm shortcut
+vim.keymap.set("n", "<leader>t1", function()
+	require("plugin-config.toggleterm").toggleNormalTerm(1)
+end)
+vim.keymap.set("n", "<leader>t2", function()
+	require("plugin-config.toggleterm").toggleNormalTerm(2)
+end)
+vim.keymap.set("n", "<leader>t3", function()
+	require("plugin-config.toggleterm").toggleNormalTerm(3)
+end)
 vim.keymap.set("n", "<leader>tf", "<cmd>TermSelect<CR>1<CR><CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tg", "<cmd>lua toggleterm_gituiToggle()<CR>", { noremap = true, silent = true })
 
 -- lsp shortcut
-vim.keymap.set("n", M.lsp_keys.rename, function() vim.lsp.buf.rename() end)
-vim.keymap.set("n", M.lsp_keys.code_action, function() vim.lsp.buf.code_action() end)
-vim.keymap.set("n", M.lsp_keys.go_definition, function() vim.lsp.buf.definition() end)
-vim.keymap.set("n", M.lsp_keys.go_declaration, function() vim.lsp.buf.declaration() end)
-vim.keymap.set("n", M.lsp_keys.go_implementation, function() vim.lsp.buf.implementation() end)
-vim.keymap.set("n", M.lsp_keys.go_references, function() vim.lsp.buf.references() end)
-vim.keymap.set("n", M.lsp_keys.go_hover, function() vim.lsp.buf.hover() end)
+vim.keymap.set("n", M.lsp_keys.rename, function()
+	vim.lsp.buf.rename()
+end)
+vim.keymap.set("n", M.lsp_keys.code_action, function()
+	vim.lsp.buf.code_action()
+end)
+vim.keymap.set("n", M.lsp_keys.go_definition, function()
+	vim.lsp.buf.definition()
+end)
+vim.keymap.set("n", M.lsp_keys.go_declaration, function()
+	vim.lsp.buf.declaration()
+end)
+vim.keymap.set("n", M.lsp_keys.go_implementation, function()
+	vim.lsp.buf.implementation()
+end)
+vim.keymap.set("n", M.lsp_keys.go_references, function()
+	vim.lsp.buf.references()
+end)
+vim.keymap.set("n", M.lsp_keys.go_hover, function()
+	vim.lsp.buf.hover()
+end)
 vim.keymap.set("n", M.lsp_keys.diagnostic_prev, function() end)
 vim.keymap.set("n", M.lsp_keys.diagnostic_next, function() end)
-vim.keymap.set("n", M.lsp_keys.format, function() vim.lsp.buf.format() end)
+vim.keymap.set("n", M.lsp_keys.format, function()
+	vim.lsp.buf.format()
+end)
 
 -- conform shortcut
-vim.keymap.set("n",'<leader>cff', function() require('plugin-config.conform').format() end)
+vim.keymap.set("n", "<leader>cf", function()
+	require("plugin-config.conform").format()
+end)
 
-return M;
+return M
