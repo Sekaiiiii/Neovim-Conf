@@ -82,3 +82,5 @@ vim.opt.laststatus = 3
 -- Default splitting will cause your main splits to jump when opening an edgebar.
 -- To prevent this, set `splitkeep` to either `screen` or `topline`.
 vim.opt.splitkeep = "screen"
+
+vim.o.termguicolors = true

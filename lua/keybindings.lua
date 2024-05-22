@@ -134,4 +134,7 @@ vim.keymap.set("n", M.lsp_keys.diagnostic_prev, function() end)
 vim.keymap.set("n", M.lsp_keys.diagnostic_next, function() end)
 vim.keymap.set("n", M.lsp_keys.format, function() vim.lsp.buf.format() end)
 
+-- conform shortcut
+vim.keymap.set("n",'<leader>cff', function() require('plugin-config.conform').format() end)
+
 return M;

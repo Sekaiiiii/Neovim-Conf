@@ -1,4 +1,4 @@
-vim.notify = require("notify").setup {
+require("notify").setup {
 	background_colour = "NotifyBackground",
 	fps = 30,
 	icons = {
@@ -11,11 +11,13 @@ vim.notify = require("notify").setup {
 	level = 2,
 	minimum_width = 50,
 	render = "default",
-	stages = "fade_in_slide_out",
 	time_formats = {
 		notification = "%T",
 		notification_history = "%FT%T"
 	},
-	timeout = 5000,
+	timeout = 1000,
 	top_down = true
 }
+
+
+vim.notify = require('notify')

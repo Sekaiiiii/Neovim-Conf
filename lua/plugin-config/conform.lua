@@ -11,7 +11,7 @@ require("conform").setup({
 })
 
 function M.format(...)
-	return require("confirm").format(...)
+	return require("conform").format(...)
 end
 
 return M;
