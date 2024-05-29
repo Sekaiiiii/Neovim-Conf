@@ -1,11 +1,24 @@
 -- 字体名称
 -- vim.g.font = 'CodeNewRoman Nerd Font Mono'
 -- vim.g.font = 'ComicShannsMono Nerd Font'
-vim.g.font = 'BlexMono Nerd Font Mono'
+-- vim.g.font = 'BlexMono Nerd Font Mono'
+vim.g.font = "FiraCode Nerd Font"
 -- 字体大小
-vim.g.fontSize = 10
+vim.g.fontSize = 12
 
-vim.defer_fn(function()
+if vim.g.neovide then
+	vim.g.neovide_input_macos_option_key_is_meta = "only_left"
+	vim.o.guifont = vim.g.font .. ":h" .. vim.g.fontSize
+	vim.o.linespace = 1
+	vim.g.neovide_transparency = 0.8
+	vim.g.neovide_floating_blur_amount_x = 2.0
+	vim.g.neovide_floating_blur_amount_y = 2.0
+	vim.g.neovide_floating_shadow = true
+	vim.g.neovide_floating_z_height = 10
+	vim.g.neovide_light_angle_degrees = 45
+	vim.g.neovide_light_radius = 5
+	vim.g.neovide_theme = "auto"
+else
 	if vim.fn.exists(":GuiFont") == 2 then
 		local cmd = "GuiFont " .. vim.g.font .. ":h" .. vim.g.fontSize
 		vim.api.nvim_command(cmd)
@@ -45,4 +58,4 @@ vim.defer_fn(function()
 		local cmd = "GuiWindowOpacity 0.9"
 		vim.api.nvim_command(cmd)
 	end
-end, 1000)
+end

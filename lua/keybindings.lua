@@ -35,6 +35,14 @@ M.lsp_keys = {
 	format = "<leader>lf",
 }
 
+-- cursor move
+vim.keymap.set({ "n", "i", "t" }, "<A-h>", "<Left>")
+vim.keymap.set({ "n", "i", "t" }, "<A-j>", "<Down>")
+vim.keymap.set({ "n", "i", "t" }, "<A-k>", "<Up>")
+vim.keymap.set({ "n", "i", "t" }, "<A-l>", "<Right>")
+vim.keymap.set({ "n", "i", "t" }, "<A-u>", "<Home>")
+vim.keymap.set({ "n", "i", "t" }, "<A-i>", "<End>")
+
 -- Ctrl-c Ctrl-v
 vim.keymap.set("v", "<C-c>", '"+y')
 vim.keymap.set("v", "<C-x>", '"+x')

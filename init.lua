@@ -1,5 +1,5 @@
 -- 加载nvim_gui_shim.vim文件
-vim.cmd('source ' .. vim.fn.stdpath('config') .. '/nvim_gui_shim.vim')
+vim.cmd("source " .. vim.fn.stdpath("config") .. "/nvim_gui_shim.vim")
 
 -- lua全局util
 require("util.global")
@@ -7,7 +7,7 @@ require("util.global")
 -- basic基础配置
 require("basic")
 
--- plugin插件管理 
+-- plugin插件管理
 require("plugins")
 
 -- auto加载
