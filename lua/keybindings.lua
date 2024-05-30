@@ -32,6 +32,7 @@ M.lsp_keys = {
 	go_references = "<leader>lgr",
 	diagnostic_prev = "<leader>ldp",
 	diagnostic_next = "<leader>ldn",
+	diagnostic_current = "<leader>ldd",
 	format = "<leader>lf",
 }
 
@@ -41,7 +42,7 @@ vim.keymap.set({ "n", "i", "t" }, "<A-j>", "<Down>")
 vim.keymap.set({ "n", "i", "t" }, "<A-k>", "<Up>")
 vim.keymap.set({ "n", "i", "t" }, "<A-l>", "<Right>")
 vim.keymap.set({ "n", "i", "t" }, "<A-u>", "<Home>")
-vim.keymap.set({ "n", "i", "t" }, "<A-i>", "<End>")
+vim.keymap.set({ "n", "i", "t" }, "<A-l>", "<End>")
 
 -- Ctrl-c Ctrl-v
 vim.keymap.set("v", "<C-c>", '"+y')
@@ -147,17 +148,16 @@ vim.keymap.set("n", "zp", function()
 end)
 
 -- toggleterm shortcut
-vim.keymap.set("n", "<leader>t1", function()
+vim.keymap.set({ "n", "t" }, "<leader>t1", function()
 	require("plugin-config.toggleterm").toggleNormalTerm(1)
 end)
-vim.keymap.set("n", "<leader>t2", function()
+vim.keymap.set({ "n", "t" }, "<leader>t2", function()
 	require("plugin-config.toggleterm").toggleNormalTerm(2)
 end)
-vim.keymap.set("n", "<leader>t3", function()
+vim.keymap.set({ "n", "t" }, "<leader>t3", function()
 	require("plugin-config.toggleterm").toggleNormalTerm(3)
 end)
-vim.keymap.set("n", "<leader>tf", "<cmd>TermSelect<CR>1<CR><CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>tg", "<cmd>lua toggleterm_gituiToggle()<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "t" }, "<leader>tg", "<cmd>lua toggleterm_gituiToggle()<CR>", { noremap = true, silent = true })
 
 -- lsp shortcut
 vim.keymap.set("n", M.lsp_keys.rename, function()
@@ -183,6 +183,7 @@ vim.keymap.set("n", M.lsp_keys.go_hover, function()
 end)
 vim.keymap.set("n", M.lsp_keys.diagnostic_prev, function() end)
 vim.keymap.set("n", M.lsp_keys.diagnostic_next, function() end)
+vim.keymap.set("n", M.lsp_keys.diagnostic_current, function() end)
 vim.keymap.set("n", M.lsp_keys.format, function()
 	vim.lsp.buf.format()
 end)
