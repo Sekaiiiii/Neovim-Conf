@@ -48,7 +48,7 @@ local serverConfigTable = {
 	yamlls = require("lsp.config.yamlls"),
 	lua_ls = require("lsp.config.lua_ls"),
 	eslint = require("lsp.config.eslint"),
-	style_lint = require("lsp.config.stylelline_lsp"),
+	stylelint_lsp = require("lsp.config.stylelint_lsp"),
 }
 
 for name, config in pairs(serverConfigTable) do
