@@ -14,12 +14,12 @@ local actual_opts = {
 		-- Setting to `true`, will add an edgy winbar.
 		-- Setting to `false`, won't set any winbar.
 		-- Setting to a string, will set the winbar to that string.
-		winbar = true,
+		winbar = false,
 		winfixwidth = false,
 		winfixheight = false,
-		winhighlight = "WinBar:EdgyWinBar,Normal:EdgyNormal",
+		winhighlight = "WinBar:EdgyWinBar,Normal:Normal",
 		spell = false,
-		signcolumn = "no"
+		signcolumn = "no",
 	},
 	animate = { enabled = false },
 	exit_when_last = false,
@@ -27,8 +27,8 @@ local actual_opts = {
 	left = {
 		{
 			ft = "NvimTree",
-			title = "NvimTree"
-		}
+			title = "NvimTree",
+		},
 	},
 	bottom = {
 		{
@@ -39,6 +39,8 @@ local actual_opts = {
 				return vim.api.nvim_win_get_config(win).relative == ""
 			end,
 		},
+		"Trouble",
+		{ ft = "qf", title = "QuickFix" },
 	},
 	right = {
 		{
@@ -47,13 +49,13 @@ local actual_opts = {
 			-- only show help buffers
 			filter = function(buf)
 				return vim.bo[buf].buftype == "help"
-			end
+			end,
 		},
 		{
 			ft = "Outline",
 			open = "SymbolsOutlineOpen",
-		}
-	}
+		},
+	},
 }
 
 edgy.setup(actual_opts)

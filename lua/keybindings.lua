@@ -57,12 +57,15 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 vim.keymap.set("n", "<leader>wc", "<cmd>close<CR>")
 vim.keymap.set("n", "<leader>wnn", "<cmd>new<CR>")
 vim.keymap.set("n", "<leader>wnv", "<cmd>vnew<CR>")
 vim.keymap.set("n", "<leader>wss", "<cmd>split<CR>")
 vim.keymap.set("n", "<leader>wsv", "<cmd>vsplit<CR>")
-
 -- window shortcut
 vim.keymap.set("n", "<C-w>z", function()
 	vim.cmd("WindowsMaximize")
@@ -113,6 +116,8 @@ vim.keymap.set("n", "<leader>bcp", "<cmd>BufferLinePickClose<CR>")
 vim.keymap.set("n", "<leader>bp", "<cmd>BufferLinePick<CR>")
 vim.keymap.set("n", "<leader>bsl", "<cmd>BufferLineMoveNext<CR>")
 vim.keymap.set("n", "<leader>bsr", "<cmd>BufferLineMovePrev<CR>")
+
+vim.keymap.set("n", "<leader>cc", "<Cmd>Bdelete!<CR>")
 
 -- nvim-tree shortcut
 vim.keymap.set("n", "<leader>mf", function()
