@@ -1,14 +1,14 @@
 {
-  "dependencies": {
-    "neovim": "^5.1.0"
-  },
-  "name": "nvim-node-plugin",
+  "name": "neovim-workspace",
   "version": "1.0.0",
+  "description": "neovim workspace plugin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "sekaiiiii",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "neovim": "^5.1.0"
+  }
 }
