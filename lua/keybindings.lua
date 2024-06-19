@@ -32,7 +32,8 @@ M.lsp_keys = {
 	go_references = "<leader>lgr",
 	diagnostic_prev = "<leader>ldp",
 	diagnostic_next = "<leader>ldn",
-	diagnostic_current = "<leader>ldd",
+	diagnostic_show = "<leader>ldd",
+	diagnostic_quickfix = "<leader>ldl",
 	format = "<leader>lf",
 }
 
@@ -186,9 +187,18 @@ end)
 vim.keymap.set("n", M.lsp_keys.go_hover, function()
 	vim.lsp.buf.hover()
 end)
-vim.keymap.set("n", M.lsp_keys.diagnostic_prev, function() end)
-vim.keymap.set("n", M.lsp_keys.diagnostic_next, function() end)
-vim.keymap.set("n", M.lsp_keys.diagnostic_current, function() end)
+vim.keymap.set("n", M.lsp_keys.diagnostic_prev, function()
+	vim.diagnostic.goto_prev()
+end)
+vim.keymap.set("n", M.lsp_keys.diagnostic_next, function()
+	vim.diagnostic.goto_next()
+end)
+vim.keymap.set("n", M.lsp_keys.diagnostic_show, function()
+	vim.diagnostic.open_float()
+end)
+vim.keymap.set("n", M.lsp_keys.diagnostic_quickfix, function()
+	vim.diagnostic.setloclist()
+end)
 vim.keymap.set("n", M.lsp_keys.format, function()
 	vim.lsp.buf.format()
 end)
