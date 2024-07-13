@@ -1,3 +1,5 @@
+local table = require("util.table")
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
@@ -13,7 +15,15 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
+local lazyOptions = {};
+
+local themePlugins = {
+	{ "savq/melange-nvim" },
+	{ "folke/tokyonight.nvim" },
+	{ "projekt0n/github-nvim-theme" },
+}
+
+local basic_plugins = {
 	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies = {
@@ -94,13 +104,9 @@ local plugins = {
 		end,
 	},
 	{ "famiu/bufdelete.nvim" }, -- theme
-	{ "savq/melange-nvim" },
-	{ "folke/tokyonight.nvim" },
-	{ "projekt0n/github-nvim-theme" }, -- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
-
 			"p00f/nvim-ts-rainbow",
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"windwp/nvim-ts-autotag",
@@ -386,8 +392,35 @@ local plugins = {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup({
+				opts = {
+					-- Defaults
+					enable_close = true, -- Auto close tags
+					enable_rename = true, -- Auto rename pairs of tags
+					enable_close_on_slash = true, -- Auto close on trailing </
+				},
+				-- Also override individual filetype configs, these take priority.
+				-- Empty by default, useful if one of the "opts" global settings
+				-- doesn't work well in a specific filetype
+				per_filetype = {},
+			})
+		end,
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("plugin-config.lspsaga")
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
+	},
 }
 
-local opts = {}
+local plugins = table.merge_tables(themePlugins, basic_plugins)
 
-require("lazy").setup(plugins, opts)
+require("lazy").setup(plugins, lazyOptions)

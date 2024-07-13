@@ -22,31 +22,20 @@ local actual_opts = {
 		signcolumn = "no",
 	},
 	animate = { enabled = false },
-	exit_when_last = false,
-	close_when_all_hidden = false,
-	left = {
-		{
-			ft = "NvimTree",
-			title = "NvimTree",
-		},
-	},
+	exit_when_last = true,
+	close_when_all_hidden = true,
 	bottom = {
 		{
 			ft = "toggleterm",
-			size = { height = 25 },
-			-- exclude floating windows
-			filter = function(buf, win)
-				return vim.api.nvim_win_get_config(win).relative == ""
-			end,
+			size = { height = 15 },
 		},
 		"Trouble",
-		{ ft = "qf", title = "QuickFix" },
+		{ ft = "quickfix", title = "QuickFix" },
 	},
 	right = {
 		{
 			ft = "help",
 			size = { width = 100 },
-			-- only show help buffers
 			filter = function(buf)
 				return vim.bo[buf].buftype == "help"
 			end,
