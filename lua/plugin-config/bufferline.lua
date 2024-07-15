@@ -6,6 +6,7 @@ end
 
 bufferline.setup({
 	options = {
+		themable = false,
 		mode = "buffers",
 		close_command = "Bdelete! %d",
 		right_mouse_command = "Bdelete! %d",

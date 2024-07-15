@@ -1,1 +1,1 @@
-
+-- require("auto.edgy-plugin-autocmd")

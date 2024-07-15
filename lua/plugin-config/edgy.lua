@@ -1,3 +1,6 @@
+local pl_pretty = require("pl.pretty")
+local pl_tablex = require("pl.tablex")
+
 local status_ok, edgy = pcall(require, "edgy")
 if not status_ok then
 	vim.notify("Plugin Error: can't find edgy plugin")
@@ -25,10 +28,12 @@ local actual_opts = {
 	exit_when_last = true,
 	close_when_all_hidden = true,
 	bottom = {
-		{
-			ft = "toggleterm",
-			size = { height = 15 },
-		},
+		-- {
+		-- 	ft = "toggleterm",
+		-- 	-- filter = function(buf)
+		-- 	-- 	return vim.bo[buf].filetype == "toggleterm"
+		-- 	-- end,
+		-- },
 		"Trouble",
 		{ ft = "quickfix", title = "QuickFix" },
 	},

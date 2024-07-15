@@ -51,8 +51,6 @@ treesitter.setup({
   },
   -- 启用代码缩进模块 (=)
   indent = { enable = true },
-  -- https://github.com/windwp/nvim-ts-autotag
-  autotag = { enable = true },
   -- nvim-treesitter/nvim-treesitter-refactor
   refactor = {
     highlight_definitions = {

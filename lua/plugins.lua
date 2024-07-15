@@ -15,7 +15,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local lazyOptions = {};
+local lazyOptions = {}
 
 local themePlugins = {
 	{ "savq/melange-nvim" },
@@ -23,7 +23,42 @@ local themePlugins = {
 	{ "projekt0n/github-nvim-theme" },
 }
 
-local basic_plugins = {
+local cmpPlugins = {
+	-- 补全引擎
+	{ "hrsh7th/nvim-cmp" },
+	-- Snippet 引擎
+	{ "L3MON4D3/LuaSnip" },
+	{ "saadparwaiz1/cmp_luasnip" },
+	-- 补全源
+	{ "hrsh7th/cmp-vsnip" },
+	{ "hrsh7th/cmp-nvim-lsp" }, -- { name = nvim_lsp }
+	{ "hrsh7th/cmp-buffer" }, -- { name = 'buffer' },
+	{ "hrsh7th/cmp-path" }, -- { name = 'path' }
+	{ "hrsh7th/cmp-cmdline" }, -- { name = 'cmdline' }
+	{ "hrsh7th/cmp-nvim-lsp-signature-help" }, -- { name = 'nvim_lsp_signature_help' }
+	-- 常见编程语言代码段
+	{ "rafamadriz/friendly-snippets" },
+	-- UI增强
+	{ "onsails/lspkind-nvim" },
+}
+
+local lspPlugins = {
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig" },
+	{ "neovim/nvim-lspconfig" },
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("plugin-config.lspsaga")
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
+	},
+}
+
+local basicPlugins = {
 	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies = {
@@ -118,12 +153,6 @@ local basic_plugins = {
 		end,
 	},
 	{
-		"romgrk/nvim-treesitter-context",
-		config = function()
-			require("plugin-config.treesitter-context")
-		end,
-	},
-	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("plugin-config.gitsigns")
@@ -141,26 +170,6 @@ local basic_plugins = {
 			require("plugin-config.diffview")
 		end,
 	},
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig" },
-	{ "neovim/nvim-lspconfig" },
-	-- 补全引擎
-	{ "hrsh7th/nvim-cmp" },
-	-- Snippet 引擎
-	{ "L3MON4D3/LuaSnip" },
-	{ "saadparwaiz1/cmp_luasnip" },
-	-- 补全源
-	{ "hrsh7th/cmp-vsnip" },
-	{ "hrsh7th/cmp-nvim-lsp" }, -- { name = nvim_lsp }
-	{ "hrsh7th/cmp-buffer" }, -- { name = 'buffer' },
-	{ "hrsh7th/cmp-path" }, -- { name = 'path' }
-	{ "hrsh7th/cmp-cmdline" }, -- { name = 'cmdline' }
-	{ "hrsh7th/cmp-nvim-lsp-signature-help" }, -- { name = 'nvim_lsp_signature_help' }
-	-- 常见编程语言代码段
-	{ "rafamadriz/friendly-snippets" },
-	-- UI 增强
-	{ "onsails/lspkind-nvim" },
-	{ "tami5/lspsaga.nvim" },
 	{
 		"kevinhwang91/nvim-ufo",
 		dependencies = { "kevinhwang91/promise-async" },
@@ -225,13 +234,7 @@ local basic_plugins = {
 		lazy = true,
 		event = { "BufRead", "BufNewFile" },
 		config = function()
-			require("filetype").setup({
-				overrides = {
-					extensions = {
-						h = "cpp",
-					},
-				},
-			})
+			require("plugin-config.filetype")
 		end,
 	},
 	{
@@ -239,7 +242,7 @@ local basic_plugins = {
 		lazy = true,
 		event = { "User FileOpened" },
 		config = function()
-			require("todo-comments").setup()
+			require("plugin-config.todo-comments")
 		end,
 	},
 	{
@@ -247,7 +250,7 @@ local basic_plugins = {
 		lazy = true,
 		cmd = { "Spectre" },
 		config = function()
-			require("spectre").setup()
+			require("plugin-config.spectre")
 		end,
 	},
 	{
@@ -255,7 +258,7 @@ local basic_plugins = {
 		lazy = true,
 		cmd = { "TroubleToggle", "Trouble", "TroubleRefresh" },
 		config = function()
-			require("trouble").setup()
+			require("plugin-config.trouble")
 		end,
 	},
 	{
@@ -263,19 +266,7 @@ local basic_plugins = {
 		lazy = true,
 		keys = { "gp" },
 		config = function()
-			require("goto-preview").setup({
-				width = 120,
-				height = 25,
-				default_mappings = true,
-				debug = false,
-				opacity = nil,
-				post_open_hook = nil,
-				-- You can use "default_mappings = true" setup option
-				-- Or explicitly set keybindings
-				-- vim.cmd("nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>")
-				-- vim.cmd("nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
-				-- vim.cmd("nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>")
-			})
+			require("plugin-config.goto-preview")
 		end,
 	},
 	{
@@ -283,63 +274,15 @@ local basic_plugins = {
 		lazy = true,
 		event = { "User FileOpened" },
 		config = function()
-			require("nvim-lastplace").setup({
-				lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-				lastplace_ignore_filetype = {
-					"gitcommit",
-					"gitrebase",
-					"svn",
-					"hgcommit",
-				},
-				lastplace_open_folds = true,
-			})
+			require("plugin-config.nvim-lastplace")
 		end,
 	},
 	{
 		"kevinhwang91/nvim-bqf",
-		-- quickfix preview and other functions
 		lazy = true,
 		event = { "WinNew" },
 		config = function()
-			require("bqf").setup({
-				auto_enable = true,
-				auto_resize_height = true,
-				preview = {
-					win_height = 12,
-					win_vheight = 12,
-					delay_syntax = 80,
-					border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
-					should_preview_cb = function(bufnr, qwinid)
-						local ret = true
-						local bufname = vim.api.nvim_buf_get_name(bufnr)
-						local fsize = vim.fn.getfsize(bufname)
-						if fsize > 100 * 1024 then
-							-- skip file size greater than 100k
-							ret = false
-						elseif bufname:match("^fugitive://") then
-							-- skip fugitive buffer
-							ret = false
-						end
-						return ret
-					end,
-				},
-				func_map = {
-					drop = "o",
-					openc = "O",
-					split = "<C-s>",
-					tabdrop = "<C-t>",
-					tabc = "",
-					vsplit = "<C-v>",
-					ptogglemode = "z,",
-					stoggleup = "",
-				},
-				filter = {
-					fzf = {
-						action_for = { ["ctrl-s"] = "split", ["ctrl-t"] = "tab drop" },
-						extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
-					},
-				},
-			})
+			require("plugin-config.nvim-bqf")
 		end,
 	},
 	{
@@ -347,34 +290,8 @@ local basic_plugins = {
 		lazy = true,
 		event = { "User FileOpened" },
 		config = function()
-			require("marks").setup({
-				default_mappings = true,
-				-- builtin_marks = { ".", "<", ">", "^" },
-				cyclic = true,
-				force_write_shada = false,
-				refresh_interval = 250,
-				sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
-				excluded_filetypes = {
-					"qf",
-					"NvimTree",
-					"toggleterm",
-					"TelescopePrompt",
-					"alpha",
-					"netrw",
-				},
-				bookmark_0 = {
-					sign = "",
-					virt_text = "hello world",
-					annotate = false,
-				},
-				mappings = {},
-			})
+			require("plugin-config.marks")
 		end,
-	},
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		config = require("plugin-config.whick-key"),
 	},
 	{
 		"stevearc/conform.nvim",
@@ -382,6 +299,12 @@ local basic_plugins = {
 		opts = {},
 		config = function()
 			require("plugin-config.conform")
+		end,
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("plugin-config.nvim-ts-autotag")
 		end,
 	},
 	{
@@ -393,34 +316,15 @@ local basic_plugins = {
 		end,
 	},
 	{
-		"windwp/nvim-ts-autotag",
+		"HakonHarnes/img-clip.nvim",
+		event = "VeryLazy",
 		config = function()
-			require("nvim-ts-autotag").setup({
-				opts = {
-					-- Defaults
-					enable_close = true, -- Auto close tags
-					enable_rename = true, -- Auto rename pairs of tags
-					enable_close_on_slash = true, -- Auto close on trailing </
-				},
-				-- Also override individual filetype configs, these take priority.
-				-- Empty by default, useful if one of the "opts" global settings
-				-- doesn't work well in a specific filetype
-				per_filetype = {},
-			})
+			require("plugin-config.img-clip.lua")
 		end,
-	},
-	{
-		"nvimdev/lspsaga.nvim",
-		config = function()
-			require("plugin-config.lspsaga")
-		end,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter", -- optional
-			"nvim-tree/nvim-web-devicons", -- optional
-		},
 	},
 }
 
-local plugins = table.merge_tables(themePlugins, basic_plugins)
+local plugins = table.merge_tables(themePlugins, cmpPlugins, lspPlugins, basicPlugins)
 
 require("lazy").setup(plugins, lazyOptions)
+

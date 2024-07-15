@@ -163,7 +163,9 @@ end)
 vim.keymap.set({ "n", "t" }, "<leader>t3", function()
 	require("plugin-config.toggleterm").toggleNormalTerm(3)
 end)
-vim.keymap.set({ "n", "t" }, "<leader>tg", "<cmd>lua toggleterm_gituiToggle()<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "t" }, "<leader>tg", function()
+	require("plugin-config.toggleterm").toggleGituiTerm()
+end)
 
 -- lsp shortcut
 vim.keymap.set("n", M.lsp_keys.rename, function()

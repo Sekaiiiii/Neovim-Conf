@@ -37,7 +37,7 @@ toggleterm.setup({
 	winbar = {
 		enabled = true,
 		name_formatter = function(term) --  term: Terminal
-			return term.name
+			return term.display_name or term.name
 		end,
 	},
 	highlights = {
@@ -54,35 +54,35 @@ toggleterm.setup({
 
 local gituiTerm = Terminal:new({
 	cmd = "gitui",
+	display_name = "GitUI",
 	direction = "float",
+	border = "shadow",
 	float_opts = {
-		border = "single",
 		width = math.floor(vim.o.columns * 0.8),
 		height = math.floor(vim.o.lines * 0.9),
 		zindex = 5,
 	},
 })
 
-function toggleterm_gituiToggle()
-	gituiTerm:toggle()
-end
-
 local normalTerm1 = Terminal:new({
-	displayname = "normalTerm1",
+	display_name = "normalTerm1",
 	direction = "horizontal",
 	dir = vim.fn.getcwd(),
+	auto_scroll = true,
 })
 
 local normalTerm2 = Terminal:new({
-	displayname = "normalTerm2",
+	display_name = "normalTerm2",
 	direction = "horizontal",
 	dir = vim.fn.getcwd(),
+	auto_scroll = true,
 })
 
 local normalTerm3 = Terminal:new({
-	displayname = "normalTerm3",
+	display_name = "normalTerm3",
 	direction = "horizontal",
 	dir = vim.fn.getcwd(),
+	auto_scroll = true,
 })
 
 local normalTermTable = { normalTerm1, normalTerm2, normalTerm3 }
@@ -92,6 +92,10 @@ local M = {}
 function M.toggleNormalTerm(index)
 	local chooseTerm = normalTermTable[index]
 	chooseTerm:toggle()
+end
+
+function M.toggleGituiTerm()
+	gituiTerm:toggle()
 end
 
 return M
