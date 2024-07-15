@@ -1,5 +1,6 @@
-local termColorScheme = "github_dark"
-local guiColorScheme = "github_dark_high_contrast"
+local termColorScheme = "nightfox"
+local guiColorScheme = "nightfox"
+
 local colorscheme = termColorScheme
 
 if vim.fn.has("gui_running") == 1 then

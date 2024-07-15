@@ -50,7 +50,7 @@ else
 	end
 
 	if vim.fn.exists(":GuiLinespace") == 2 then
-		local cmd = "GuiLinespace 0.1"
+		local cmd = "GuiLinespace 0.2"
 		vim.api.nvim_command(cmd)
 	end
 

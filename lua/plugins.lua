@@ -21,6 +21,9 @@ local themePlugins = {
 	{ "savq/melange-nvim" },
 	{ "folke/tokyonight.nvim" },
 	{ "projekt0n/github-nvim-theme" },
+	{ "EdenEast/nightfox.nvim" },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "navarasu/onedark.nvim" },
 }
 
 local cmpPlugins = {
@@ -310,16 +313,23 @@ local basicPlugins = {
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
+		build = "cd app && npm install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
 		end,
+		ft = { "markdown" },
 	},
 	{
 		"HakonHarnes/img-clip.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("plugin-config.img-clip.lua")
+			require("plugin-config.img-clip")
+		end,
+	},
+	{
+		"keaising/im-select.nvim",
+		config = function()
+			require("plugin-config.im-select")
 		end,
 	},
 }
@@ -327,4 +337,3 @@ local basicPlugins = {
 local plugins = table.merge_tables(themePlugins, cmpPlugins, lspPlugins, basicPlugins)
 
 require("lazy").setup(plugins, lazyOptions)
-
