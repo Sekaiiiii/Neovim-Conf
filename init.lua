@@ -27,3 +27,6 @@ require("keybindings")
 
 -- gui初始化
 require("gui")
+
+-- custom Plugin
+require("plugins.setup")
