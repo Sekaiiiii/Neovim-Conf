@@ -156,9 +156,9 @@ function M.remove_workspace(workspace_name)
 end
 
 function M.setup()
-	vim.api.nvim_command([[command! -nargs=1 WorkspaceCreate lua require("plugins.workspace.setup").create_workspace_dir(<f-args>) ]])
-	vim.api.nvim_command([[command! -nargs=+ WorkspaceAdd lua require("plugins.workspace.setup").add_dir_into_workspace(<f-args>) ]])
-	vim.api.nvim_command([[command! -nargs=+ WorkspaceRemove lua require("plugins.workspace.setup").remove_workspace_symlink_by_alias(<f-args>) ]])
+	vim.api.nvim_command([[command! -nargs=1  WorkspaceCreate lua require("plugins.workspace.setup").create_workspace_dir(<f-args>) ]])
+	vim.api.nvim_command([[command! -nargs=+ -complete=dir WorkspaceAdd lua require("plugins.workspace.setup").add_dir_into_workspace(<f-args>) ]])
+	vim.api.nvim_command([[command! -nargs=+ -complete=file WorkspaceRemove lua require("plugins.workspace.setup").remove_workspace_symlink_by_alias(<f-args>) ]])
 	vim.api.nvim_command([[command! -nargs=0 WorkspaceList lua require("plugins.workspace.setup").get_workspace_infos(<f-args>) ]])
 	vim.api.nvim_command([[command! -nargs=1 WorkspaceDelete lua require("plugins.workspace.setup").remove_workspace(<f-args>) ]])
 	vim.api.nvim_command([[command! -nargs=1 WorkspaceInfo lua require("plugins.workspace.setup").get_workspace_info(<f-args>) ]])

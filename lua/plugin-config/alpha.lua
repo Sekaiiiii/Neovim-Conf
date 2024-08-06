@@ -6,62 +6,29 @@ end
 
 local dashboard = require("alpha.themes.dashboard")
 
-function getSessionInfo()
-	local path = vim.fn.stdpath("data") .. "\\sessions"
+local _M = {}
 
-	local sessionDictTable = {}
-	local cnt = 0
-	for file in vim.fs.dir(path) do
-		local folderPath = file
-		folderPath = string.sub(folderPath, 0, -4)
-		folderPath = string.gsub(folderPath, "++", ":")
-		folderPath = string.gsub(folderPath, "-", "//")
-		sessionDictTable[cnt] = {
-			name = file,
-			sessionPath = path .. "\\" .. file,
-			folderPath = folderPath,
-		}
-		cnt = cnt + 1
-	end
-
-	if cnt < 1 then
-		return nil
-	else
-		return sessionDictTable
-	end
-end
-
-function sessionClick(folderPath)
-	vim.cmd("cd " .. folderPath)
-	vim.cmd("SessionRestore")
+function _M.gen_goto_nvim_config_str()
+	local nvim_path = vim.fn.stdpath("config")
+	local cmd_str = "<cmd>cd " .. nvim_path .. "<CR>"
+	return cmd_str
 end
 
 dashboard.section.header.val = {
-	[[                               __                ]],
-	[[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-	[[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-	[[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-	[[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-	[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+	[[ .oooooo..o oooooooooooo oooo    oooo       .o.       ooooo ooooo ooooo ooooo ooooo]],
+	[[d8P'    `Y8 `888'     `8 `888   .8P'       .888.      `888' `888' `888' `888' `888']],
+	[[Y88bo.       888          888  d8'        .8"888.      888   888   888   888   888 ]],
+	[[ `"Y8888o.   888oooo8     88888[         .8' `888.     888   888   888   888   888 ]],
+	[[     `"Y88b  888    "     888`88b.      .88ooo8888.    888   888   888   888   888 ]],
+	[[oo     .d8P  888       o  888  `88b.   .8'     `888.   888   888   888   888   888 ]],
+	[[8""88888P'  o888ooooood8 o888o  o888o o88o     o8888o o888o o888o o888o o888o o888o]],
 }
 
-local defaultBtnTable = {
-	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-	dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
+local btn_table = {
+	dashboard.button("c", "GOTO_CONFIG", _M.gen_goto_nvim_config_str()),
+	dashboard.button("q", "QUIT", "<CMD>quit<CR>"),
 }
 
-local sessionInfo = getSessionInfo()
-
-if type(sessionInfo) ~= "table" then
-	dashboard.section.buttons.val = defaultBtnTable
-else
-	local sessionBtnTable = {}
-	for i = 0, #sessionInfo, 1 do
-		local btnName = "Session: " .. sessionInfo[i].name
-		local btnOp = '<CMD>lua sessionClick("' .. sessionInfo[i].folderPath .. '")<CR>'
-		table.insert(sessionBtnTable, dashboard.button(";", btnName, btnOp))
-	end
-	dashboard.section.buttons.val = _G.mergeTable(sessionBtnTable, defaultBtnTable)
-end
+dashboard.section.buttons.val = btn_table
 
 alpha.setup(dashboard.config)

@@ -30,3 +30,6 @@ require("gui")
 
 -- custom Plugin
 require("plugins.setup")
+
+-- custom cmd
+require("cmd")

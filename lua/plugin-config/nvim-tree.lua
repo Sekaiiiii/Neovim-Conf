@@ -15,6 +15,7 @@ local function nvim_on_attach(bufnr)
 	api.config.mappings.default_on_attach(bufnr)
 
 	-- custom mappings
+	vim.keymap.set("n", "<A-r>", api.node.run.system)
 	-- s run system
 	vim.keymap.set("n", "s", "<Plug>(leap-forward-to)", opts("leap"))
 	-- S search
