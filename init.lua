@@ -32,4 +32,4 @@ require("gui")
 require("plugins.setup")
 
 -- custom cmd
-require("cmd")
+require("cmd.setup")
