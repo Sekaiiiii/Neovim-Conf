@@ -18,24 +18,7 @@ function _M.get_file_type(buf_id)
 end
 
 function _G.log(v)
-	print(vim.inspect(v))
-	return v
-end
-
-function _G.printTable(t, indent)
-	indent = indent or 1
-
-	for key, value in pairs(t) do
-		local formatting = string.rep("  ", indent)
-
-		if type(value) == "table" then
-			print(formatting .. key .. " = {")
-			printTable(value, indent + 1)
-			print(formatting .. "}")
-		else
-			print(formatting .. key .. " = " .. tostring(value))
-		end
-	end
+	require("pl.pretty")(v)
 end
 
 function _G.concatArray(...)
